@@ -1,0 +1,22 @@
+.reviewdesc {
+    font-size: 2.5vh;
+    color: white;
+}
+.reviewtype {
+    font-size: 1.5vh;
+    color: white;
+
+}
+.review {
+    width: 80vw;
+    margin: 2vh;
+}
+
+.reviewstrip {
+    align-items: center;
+    display:flex;
+    flex-direction : column;
+    background-color: black;
+    opacity: 90%;
+    padding: 2vh;
+}

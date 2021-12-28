@@ -1,0 +1,97 @@
+.titlefont {
+    font-size: 3vh;
+}
+
+.headerfont {
+    font-size: 2vh;
+
+}
+
+.bodyfont {
+    font-size: 1.5vh;
+
+}
+
+.footercontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: white;
+    margin: 2vh;
+}
+
+.storeinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.day {
+    width: 15vw;
+    text-align: left;
+}
+.time {
+    text-align: left;
+}
+
+
+.hourinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.socialinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.daytimecontainer {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+@media only screen and (max-width: 768px) {
+    .footercontainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .titlefont {
+        font-size: 2.5vh;
+        margin: 2.5vh;
+        margin-bottom: 0vh;
+    }
+
+    .day {
+        width: 45vw;
+        text-align: left;
+    }
+
+    .storeinfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hourinfo {
+        width: 100%;
+        margin: 2vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .socialinfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 3vh;
+    }
+ }

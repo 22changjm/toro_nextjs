@@ -1,0 +1,28 @@
+
+.stripImage {
+    width: 40vw;
+    height: 25vw;
+    object-fit: scale-down;
+    margin: 1vw;
+}
+
+.photoRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .photoRow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stripImage {
+        width: 90vw;
+        height: 25vw;
+        object-fit: scale-down;
+        margin: 1vw;
+    }
+ }
