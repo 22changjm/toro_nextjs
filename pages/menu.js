@@ -32,12 +32,12 @@ export default function Menu() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigbar/>
-      <h1 class={styles.title}>Our Menu</h1>
-      <p class={styles.body}>Click On the Following Options to Display the Corresponding Menu</p>
+      <h1 className={styles.title}>Our Menu</h1>
+      <p className={styles.body}>Click On the Following Options to Display the Corresponding Menu</p>
       <div className={styles.buttoncontainer}>
-        <button class="buttoninverse" onClick={() => {updateToKitchen()}}>Kitchen</button>
-        <button class="buttoninverse" onClick={() => {updateToLunchSpecial()}}>Lunch Special</button>
-        <button class="buttoninverse" onClick={() => {updateToSushiBar()}}>Sushi Bar</button>
+        <button className="buttoninverse" onClick={() => {updateToKitchen()}}>Kitchen</button>
+        <button className="buttoninverse" onClick={() => {updateToLunchSpecial()}}>Lunch Special</button>
+        <button className="buttoninverse" onClick={() => {updateToSushiBar()}}>Sushi Bar</button>
       </div>
 
       {state}
