@@ -13,7 +13,7 @@ export default function Home() {
       <Head>
         <title>Toro Fusion Grill</title>
         <meta name="description" content="Toro Fusion Grill located at 1818 L Street Bakersfield, CA 93301" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" /> 
       </Head>
       <Navigbar/>
       <PhotoLogoStrip />
