@@ -17,7 +17,7 @@ export default function Home() {
       </Head>
       <Navigbar/>
       <PhotoLogoStrip />
-      <p id={styles.open}>We are open for take-out, delivery, and socially-distanced dining! </p>
+      <p id={styles.open}>We have relocated to 1818 L Street Bakersfield, CA 93301!</p>
       <FavoriteStrip />
       <PhotoStrip />
       <ReviewStrip />
