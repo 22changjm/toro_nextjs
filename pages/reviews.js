@@ -21,7 +21,7 @@ export default function Reviews() {
                 <div className={styles.reviewtype}>— 5-Star Google Review</div>
             </div>
             <div className={styles.review}>
-                <div className={styles.reviewdesc}>“I can&#39;t believe we&#39;ve been in town for over a year and have never been here! Our first time and I couldn&#39;t have been more impressed. The food was delicious, and the service was the best I&#39;ve had in a LOOOOONG time.</div>
+                <div className={styles.reviewdesc}>“I can &apos; t believe we&apos;ve been in town for over a year and have never been here! Our first time and I couldn&apos;t have been more impressed. The food was delicious, and the service was the best I&apos;ve had in a LOOOOONG time.</div>
                 <div className={styles.reviewtype}>— 5-Star Google Review</div>
             </div>
             <div className={styles.review}>
