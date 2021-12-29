@@ -13,7 +13,7 @@ export default function Reviews() {
     </div>
     <div className={styles.reviewstrip}>
             <div className={styles.review}>
-                <div className={styles.reviewdesc}>“Sooo good! I had the flaming dragon roll and some teriyaki chicken. The food was delicious, the atmosphere was nice and all of the staff was amazing. I will definitely be back! I don't drink often but I had to get some Saki. Perfect.”</div>
+                <div className={styles.reviewdesc}>“Sooo good! I had the flaming dragon roll and some teriyaki chicken. The food was delicious, the atmosphere was nice and all of the staff was amazing. I will definitely be back! I don&apos;t drink often but I had to get some Saki. Perfect.”</div>
                 <div className={styles.reviewtype}>— 5-Star Google Review</div>
             </div>
             <div className={styles.review}>
@@ -29,11 +29,11 @@ export default function Reviews() {
                 <div className={styles.reviewtype}>— 5-Star Google Review</div>
             </div>
             <div className={styles.review}>
-                <div className={styles.reviewdesc}>“This is probably my favorite sushi/restaurant- in Bakersfield, I love the welcoming atmosphere…Everyone says hello when you walk in, they've got GREAT prices on rolls, &#38; the chefs do exquisite with presentation”</div>
+                <div className={styles.reviewdesc}>“This is probably my favorite sushi/restaurant- in Bakersfield, I love the welcoming atmosphere…Everyone says hello when you walk in, they&apos;ve got GREAT prices on rolls, &#38; the chefs do exquisite with presentation”</div>
                 <div className={styles.reviewtype}>— 5-Star Yelp Review</div>
             </div>
             <div className={styles.review}>
-                <div className={styles.reviewdesc}>“Awesome server and food! We got there and were greeted right away and seated. The highlighted on menu were half off. My friend and I loved it so much that we will for sure be back."</div>
+                <div className={styles.reviewdesc}>“Awesome server and food! We got there and were greeted right away and seated. The highlighted on menu were half off. My friend and I loved it so much that we will for sure be back.”</div>
                 <div className={styles.reviewtype}>— 5-Star Yelp Review</div>
             </div>
         </div>
