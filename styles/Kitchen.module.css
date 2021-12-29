@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     background-color: black;
+    width: 100%;
 }
 
 .title {
@@ -15,7 +16,11 @@
 .menu {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+}
+
+.body {
+    color: white;
 }
 
 .entryname {
@@ -43,13 +48,16 @@
 
 
 @media only screen and (max-width: 768px) {
+    .container {
+        align-items: flex-start;
+        padding-left: 2vw;
+    }
     .menu {
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
 
-    .entryname {
+    .entry {
         width: 90vw;
         min-height: 0;
         margin-bottom: 1vh;
