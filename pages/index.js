@@ -4,7 +4,7 @@ import Navigbar from '../components/Navigbar'
 import PhotoLogoStrip from '../components/PhotoLogoStrip'
 import PhotoStrip from '../components/PhotoStrip'
 import ReviewStrip from '../components/ReviewStrip'
-import styles from '../styles/home.module.css'
+import styles from '../styles/Home.module.css'
 import Footer from '../components/Footer'
 
 export default function Home() {
