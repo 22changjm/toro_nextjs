@@ -1,5 +1,4 @@
 import Navigbar from '../components/Navigbar'
-import ReviewStrip from '../components/ReviewStrip'
 import Footer from '../components/Footer'
 import styles from '../styles/Reviews.module.css'
 
