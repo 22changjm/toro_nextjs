@@ -16,7 +16,7 @@ const Navigbar = () => {
               objectFit="contain"
               />
            </Navbar.Brand>
-           <Navbar.Toggle class={styles.endMargin} aria-controls="responsive-navbar-nav" />
+           <Navbar.Toggle className={styles.endMargin} aria-controls="responsive-navbar-nav" />
            <Navbar.Collapse id="responsive-navbar-nav">
            <Nav className={styles.routes}>
               <Nav.Link href="/">Welcome</Nav.Link>
