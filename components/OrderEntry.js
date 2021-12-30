@@ -1,36 +1,20 @@
 import styles from '../styles/OrderEntry.module.css'
 
-const orderEntry = (name, price, desc) => {
-    console.log(name,price,desc)
+const orderEntry = (name, price, desc, onclick) => {
     if (typeof price === 'object' && price !== null) {
         price = Math.min(...Object.values(price))
     } 
     if (typeof desc === 'object' && desc != null) {
-        const inside = <div className={styles.inside}> In: {desc['in']} </div>
+        const temp = `In: ${desc['in']}`
         if ('out' in desc) {
-            const out = <div className={styles.out}> Out: {desc['out']} </div>
-
+            temp += ` | Out: ${desc['out']}`
         }
-        return (
-            <>
-                <div className={styles.entry}>
-                        <div className={styles.entryname}>
-                            {name}
-                        </div>
-                        <div className={styles.entrydesc}>
-                            {inside}
-                            {out}
-                        </div>
-                        <div className={styles.price}>
-                            {price}
-                        </div>
-                    </div>
-            </>
-        )
+        desc = temp;
     }
+
     return (
         <>
-            <div className={styles.entry}>
+            <div onClick={()=> {onclick(name)}} className={styles.entry}>
                     <div className={styles.entryname}>
                         {name}
                     </div>
