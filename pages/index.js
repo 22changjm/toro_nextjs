@@ -6,6 +6,9 @@ import PhotoStrip from '../components/PhotoStrip'
 import ReviewStrip from '../components/ReviewStrip'
 import styles from '../styles/Home.module.css'
 import Footer from '../components/Footer'
+import firebase from '../firebase/initFirebase'
+
+firebase()
 
 export default function Home() {
   return (
@@ -17,12 +20,11 @@ export default function Home() {
       </Head>
       <Navigbar/>
       <PhotoLogoStrip />
-      <p id={styles.open}>We have relocated to 1818 L Street Bakersfield, CA 93301!</p>
+      <p id={styles.open}>We have relocated to 1818 L Street Bakersfield, CA</p>
       <FavoriteStrip />
       <PhotoStrip />
       <ReviewStrip />
       <Footer />
-      
     </>
   )
 }

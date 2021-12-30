@@ -21,7 +21,7 @@ const Navigbar = () => {
            <Nav className={styles.routes}>
               <Nav.Link href="/">Welcome</Nav.Link>
               <Nav.Link href="/menu">Menu</Nav.Link>
-              <Nav.Link href="#order">Order</Nav.Link>
+              <Nav.Link href="/order">Order</Nav.Link>
               <Nav.Link href="/reviews">Reviews</Nav.Link>
               <Nav.Link href="https://www.messenger.com/login.php?next=https%3A%2F%2Fwww.messenger.com%2Ft%2F171694852715%2F%3Fmessaging_source%3Dsource%253Apages%253Amessage_shortlink">Contact</Nav.Link>
            </Nav>
