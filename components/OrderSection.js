@@ -4,7 +4,7 @@ import orderEntry from "./OrderEntry";
 import {useState, useEffect} from "react"
 import styles from '../styles/OrderEntry.module.css'
 
-const orderSection = (type, category) => {
+const OrderSection = (type, category) => {
     const [entries, SetEntries] = useState([]);
 
     
@@ -64,7 +64,7 @@ const orderSection = (type, category) => {
 }
 
 
-export default orderSection
+export default OrderSection
 
 
 
