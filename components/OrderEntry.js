@@ -14,7 +14,7 @@ const orderEntry = (name, price, desc, onclick) => {
 
     return (
         <div>
-            <div onClick={()=> {onclick(name, price)}} className={styles.entry}>
+            <div onClick={()=> {onclick(name, desc, price)}} className={styles.entry}>
                     <div className={styles.entryname}>
                         {name}
                     </div>

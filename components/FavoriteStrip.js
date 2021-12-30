@@ -62,7 +62,7 @@ const FavoriteStrip = () => {
             <div className={styles.buttons}>
             <Link href="/menu">
                 <div className="button">View Full Menu</div></Link>
-            <Link href="/order" className="button"><div className="button">Order Now</div></Link>
+            <Link href="#order" className="button"><div className="button">Order Now</div></Link>
 
             </div>
         </div>

@@ -6,6 +6,7 @@ import CheckoutBar from '../components/CheckoutBar';
 import firebaseInit from '../firebase/initFirebase'
 import { getDatabase, ref, onValue} from "firebase/database";
 import CheckOutItem from "../components/CheckOutItem"
+import Modal from "../components/Modal";
 
 
 export default function Order() {
@@ -14,6 +15,26 @@ export default function Order() {
     const [currItem, setCurrItem] = useState({})
     const [lookup, setLookup] = useState({});
     const [index, setIndex] = useState(0);
+
+    const [openStatus, setOpenStatus] = useState(false);
+    const [modalTitle, setModalTitle] = useState("");
+    const [modalDescription, setModalDescription] = useState("");
+    const [modalPrice, setModalPrice] = useState(0);
+
+    const closeModal = () => {
+
+        setOpenStatus(!openStatus)
+    }
+
+    const openModal = (name, desc, price) => {
+    
+        setModalTitle(name);
+        setModalDescription(desc);
+        setModalPrice(price);
+        setOpenStatus(!openStatus)
+    }
+
+    useEffect(()=> {}, [openStatus])
     
     useEffect(()=>{
         if (Object.keys(lookup).includes(currItem['name'])) {
@@ -39,94 +60,41 @@ export default function Order() {
 
 
     const AddToCheckout = async (id, price) => {
-
-        /*const app = firebaseInit();
-        const db = getDatabase(app);
-        const lookup = ref(db,`/Lookup`);
-
-        const promise = new Promise((resolve, reject) => {
-            onValue(lookup, (snapshot) => {
-                const data = snapshot.val();
-                resolve(data);
-            })
-        })
-
-        const res = await promise.then((data)=> {
-            return data[id];
-            
-        })
-        const {category, type} = res;
-        const entry = ref(db, `/Menu/${type}/${category}`)
-
-        promise = new Promise((resolve, reject) => {
-            onValue(entry, (snapshot) => {
-                const data = snapshot.val();
-                resolve(data);
-            })
-        })
-
-        res = await promise.then((data)=> {
-            return data[id];
-        }) */
         setCurrItem({
             name: id,
             price: price,
             count: 1
         });
-
-        /*// REMOVE SINCE PRICE WILL BE CHOSEN
-        const price = res['price']
-        if (typeof price === 'object' && price !== null) {
-            price = Math.min(...Object.values(price))
-        }
-        if (itemState && id in itemState) {
-            const index = itemState[id]['index']
-            const count = itemState[id]['count']
-            setCheckout((previousState)=> [...(previousState.slice(0, index)) , <CheckOutItem key={id} name={id} count={count + 1} price={price}/>, ...(previousState.splice(index + 1))])
-            return;
-        } else {
-            
-            setCheckout((previousState)=> [...previousState, <CheckOutItem key={id} name={id} count={1} price={price}/>])
-            const newItemState = Object.assign({}, itemState);
-            newItemState[id] = {
-                count: 1,
-                index: itemState.length
-            }
-            setItemState(() => {itemState = newItemState});
-
-
-        } */
-             
-
-
-
+        setOpenStatus(!openStatus)
+  
 
     }
   return (
     <>
       <Navigbar/>
+      {openStatus && <Modal title={modalTitle} description={modalDescription} price={modalPrice} addToCart={AddToCheckout} handleClick={closeModal} />}
       <div className={styles.container}>
           <div className={styles.menu}>
-            {OrderSection('Sushi Bar', 'Sushi and Sashimi', AddToCheckout)}
-            {OrderSection('Sushi Bar', 'Classic Rolls', AddToCheckout)}
-            {OrderSection('Sushi Bar', 'Baked Rolls', AddToCheckout)}
-            {OrderSection('Sushi Bar', 'Tempura Rolls', AddToCheckout)}
-            {OrderSection('Sushi Bar', 'Fresh Rolls', AddToCheckout)}
-            {OrderSection('Sushi Bar', 'Specialty Rolls', AddToCheckout)}
-            {OrderSection('Sushi Bar', 'Sushi Bar Special', AddToCheckout)}
+            {OrderSection('Sushi Bar', 'Sushi and Sashimi', openModal)}
+            {OrderSection('Sushi Bar', 'Classic Rolls', openModal)}
+            {OrderSection('Sushi Bar', 'Baked Rolls', openModal)}
+            {OrderSection('Sushi Bar', 'Tempura Rolls', openModal)}
+            {OrderSection('Sushi Bar', 'Fresh Rolls', openModal)}
+            {OrderSection('Sushi Bar', 'Specialty Rolls', openModal)}
+            {OrderSection('Sushi Bar', 'Sushi Bar Special', openModal)}
 
-            {OrderSection('Kitchen', 'Appetizers', AddToCheckout)}
-            {OrderSection('Kitchen', 'Salads', AddToCheckout)}
-            {OrderSection('Kitchen', 'Toro Specialties', AddToCheckout)}
-            {OrderSection('Kitchen', 'Entrees', AddToCheckout)}
-            {OrderSection('Kitchen', 'Tempura', AddToCheckout)}
-            {OrderSection('Kitchen', 'Rice', AddToCheckout)}
-            {OrderSection('Kitchen', 'Noodles', AddToCheckout)}
-            {OrderSection('Kitchen', 'Soup', AddToCheckout)}
-            {OrderSection('Kitchen', 'Dessert', AddToCheckout)}
+            {OrderSection('Kitchen', 'Appetizers', openModal)}
+            {OrderSection('Kitchen', 'Salads', openModal)}
+            {OrderSection('Kitchen', 'Toro Specialties', openModal)}
+            {OrderSection('Kitchen', 'Entrees', openModal)}
+            {OrderSection('Kitchen', 'Tempura', openModal)}
+            {OrderSection('Kitchen', 'Rice', openModal)}
+            {OrderSection('Kitchen', 'Noodles', openModal)}
+            {OrderSection('Kitchen', 'Soup', openModal)}
+            {OrderSection('Kitchen', 'Dessert', openModal)}
           </div>
           <div className={styles.placeholder}></div>
-          <CheckoutBar  items={items}/>
+          <CheckoutBar items={items}/>
       </div>
 
 
