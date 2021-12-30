@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.menu {
+    width: 100%;
+}
+
+.placeholder {
+    min-width: 500px;
+}

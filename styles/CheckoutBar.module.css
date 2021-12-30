@@ -1,0 +1,12 @@
+.container {
+    min-width: 500px;
+    box-shadow: -5px 0px 6px -3px #d1d1d1;
+    position: fixed;
+    height: 96vh;
+}
+
+.title {
+    text-align: center;
+    margin: 2vh;
+    font-size: 3vh;
+}

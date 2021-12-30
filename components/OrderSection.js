@@ -11,7 +11,7 @@ const OrderSection = (type, category) => {
 
     const fetchEntries = async () => {
         const app = firebaseInit();
-        const db = getDatabase(app);'/Menu/Sushi Bar/Baked Rolls'
+        const db = getDatabase(app);
         const appetizers = ref(db,`/Menu/${type}/${category}`);
 
         const promise = new Promise((resolve, reject) => {

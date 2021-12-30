@@ -1,6 +1,6 @@
 .entryname {
     left: 15px;
-    top: 7px;
+    top: 3px;
     position: absolute;
     font-weight: bold;
 }
@@ -12,14 +12,14 @@
 }
 
 .entrydesc {
-    top: 27px;
+    top: 28px;
     position: absolute;
     left: 15px;
     margin: 0;
     line-height: 95%;
     padding-right: 15px;
-    font-size: 15px;
-    
+    font-size: 14px;
+
 }
 
 .entry {
@@ -35,6 +35,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    align-content:space-evenly;
 }
 
 .row {
@@ -45,4 +46,9 @@
 .title {
     margin: 15px;
     font-size: 20px;
+}
+
+.entry:hover{
+    border: 3px solid red;
+
 }
