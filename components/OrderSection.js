@@ -25,7 +25,7 @@ const OrderSection = (type, category, onClick) => {
             const list = []
             for (const i = 0; i+1 < menuEntries.length - (menuEntries.length % 2); i+=2) {
                 list.push(
-                    <div className={styles.row}>
+                    <div key={`r${menuEntries[i][0]} ${menuEntries[i+1][0]}`}className={styles.row}>
                         {orderEntry(menuEntries[i][0], menuEntries[i][1]['price'], menuEntries[i][1]['description'], onClick)}
                         {orderEntry(menuEntries[i+1][0], menuEntries[i+1][1]['price'], menuEntries[i+1][1]['description'], onClick)}
                     </div>
@@ -33,7 +33,7 @@ const OrderSection = (type, category, onClick) => {
             }
             if (menuEntries.length % 2 == 1) {
                 list.push(
-                    <div className={styles.row}>
+                    <div key={`r${menuEntries[i][0]}`}className={styles.row}>
                         {orderEntry(menuEntries[menuEntries.length - 1][0], menuEntries[menuEntries.length -1][1]['price'], menuEntries[menuEntries.length - 1][1]['description'], onClick)}
                     </div>
                 )

@@ -10,10 +10,37 @@ import CheckOutItem from "../components/CheckOutItem"
 
 export default function Order() {
 
-    const [checkout, setCheckout] = useState([]);
+    const [items, setItems] = useState([]);
+    const [currItem, setCurrItem] = useState({})
+    const [lookup, setLookup] = useState({});
+    const [index, setIndex] = useState(0);
+    
+    useEffect(()=>{
+        if (Object.keys(lookup).includes(currItem['name'])) {
+            const tmp = items.slice();
+            tmp[lookup[currItem['name']]]['count'] = tmp[lookup[currItem['name']]]['count'] + currItem['count'];
+            tmp[lookup[currItem['name']]]['price'] = tmp[lookup[currItem['name']]]['price'] + currItem['price'] * currItem['count'];
+            setItems(tmp);
+            
+            
+        } else {
+            setLookup((previousState)=>{
+                const tmp = {...previousState}
+                tmp[currItem['name']] = index;
+                setIndex(()=>index+1);
+                return tmp;
 
-    const AddToCheckout = async (id) => {
-        const app = firebaseInit();
+            })
+
+            setItems((previousState)=>[...previousState, currItem])
+
+        }
+    }, [currItem])
+
+
+    const AddToCheckout = async (id, price) => {
+
+        /*const app = firebaseInit();
         const db = getDatabase(app);
         const lookup = ref(db,`/Lookup`);
 
@@ -40,17 +67,36 @@ export default function Order() {
 
         res = await promise.then((data)=> {
             return data[id];
-        })
-        
+        }) */
+        setCurrItem({
+            name: id,
+            price: price,
+            count: 1
+        });
 
-
-        // REMOVE SINCE PRICE WILL BE CHOSEN
+        /*// REMOVE SINCE PRICE WILL BE CHOSEN
         const price = res['price']
         if (typeof price === 'object' && price !== null) {
             price = Math.min(...Object.values(price))
         }
-        const newEntry = CheckOutItem(id,1,price);
-        setCheckout([...checkout, newEntry])
+        if (itemState && id in itemState) {
+            const index = itemState[id]['index']
+            const count = itemState[id]['count']
+            setCheckout((previousState)=> [...(previousState.slice(0, index)) , <CheckOutItem key={id} name={id} count={count + 1} price={price}/>, ...(previousState.splice(index + 1))])
+            return;
+        } else {
+            
+            setCheckout((previousState)=> [...previousState, <CheckOutItem key={id} name={id} count={1} price={price}/>])
+            const newItemState = Object.assign({}, itemState);
+            newItemState[id] = {
+                count: 1,
+                index: itemState.length
+            }
+            setItemState(() => {itemState = newItemState});
+
+
+        } */
+             
 
 
 
@@ -80,7 +126,7 @@ export default function Order() {
             {OrderSection('Kitchen', 'Dessert', AddToCheckout)}
           </div>
           <div className={styles.placeholder}></div>
-          <CheckoutBar items={checkout}/>
+          <CheckoutBar  items={items}/>
       </div>
 
 
