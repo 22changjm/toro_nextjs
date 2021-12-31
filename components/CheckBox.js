@@ -9,7 +9,7 @@ const CheckBox = (props) => {
                     
                     return (<div key={index} className={styles.buttoncontainer}>
                         <div className={styles.couple}> 
-                            <input className={styles.radio} type="radio" value={value[0]} name="type" /> 
+                            <input onClick={() => {props.buttonClick(value[1], value[0])}}className={styles.radio} type="radio" value={value[0]} name="type" /> 
                             <div className={styles.option}>
                                 {value[0]}
                             </div>

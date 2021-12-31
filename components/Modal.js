@@ -4,10 +4,18 @@ import firebaseInit from '../firebase/initFirebase'
 import { getDatabase, onValue, ref } from 'firebase/database';
 import CheckBox from './CheckBox';
 
-
 const Modal = (props) => {
 
     const [prices, setPrices] = useState({})
+
+    const [currPrice, setCurrPrice] = useState();
+    const [currQuant, setCurrQuant] = useState(1);
+    const [currChoice, setCurrChoice] = useState("");
+
+    const handleButtonClick = (price, choice) => {
+        setCurrPrice(price);
+        setCurrChoice(props.title + ` (${choice})`)
+    }
 
     useEffect(async ()=>{
         const app = firebaseInit();
@@ -35,8 +43,10 @@ const Modal = (props) => {
         })
         if (typeof res['price'] === 'object' && res['price'] !== null) {
             setPrices(res['price'])
+            setCurrPrice(Math.min(...Object.values(res['price'])));
         } else {
             setPrices(res['price']);
+            setCurrPrice(res['price'])
         }
         console.log(res['price']);
 
@@ -51,10 +61,11 @@ const Modal = (props) => {
             <div className={styles.modalguts}>
                 <h1>{props.title}</h1>
                 <p>{props.description}</p>
-                {<CheckBox styleName={styles.checkBox}prices={prices}/>}
+                {<CheckBox buttonClick={handleButtonClick} styleName={styles.checkBox}prices={prices}/>}
+                <div className={styles.quantTitle}>Qty:</div>
                 <div className={styles.txtTitle}> Notes (150 Characters)&#58; </div>
                 <textarea maxLength={150} id={styles.notes} name="notes"/>
-                <button id={styles.button} onClick={()=>{props.addToCart(props.title, props.price)}}className="buttoninverse">Add to Cart</button>
+                <button id={styles.button} onClick={()=>{props.addToCart(currChoice, currPrice)}}className="buttoninverse">Add to Cart</button>
             </div>
             </div>
         </div>
