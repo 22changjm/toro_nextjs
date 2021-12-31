@@ -1,12 +1,32 @@
 .container {
+    width: 500px;
     min-width: 500px;
     box-shadow: -5px 0px 6px -3px #d1d1d1;
     position: fixed;
-    height: 96vh;
+    height: 70vh;
+    overflow-y: scroll;
+    top: 154px;
+    border-bottom: solid black 20px;
+    border-radius: 18px;
 }
 
 .title {
     text-align: center;
     margin: 2vh;
     font-size: 3vh;
+}
+
+.footcontainer {
+    position: fixed;
+    min-width: 500px;
+    width: 500px;
+    height: 17.8vh;
+    bottom:0;
+    box-shadow: -5px 0px 6px -3px #d1d1d1;
+    font-size: 30px;
+}
+
+.total {
+    text-align: center;
+    margin:20px;
 }

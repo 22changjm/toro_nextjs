@@ -12,6 +12,13 @@ const orderEntry = (name, price, desc, onclick) => {
         desc = temp;
     }
 
+    
+    if (typeof price === 'object' && price !== null) {
+        console.log(price);
+    }
+
+ 
+
     return (
         <div>
             <div onClick={()=> {onclick(name, desc, price)}} className={styles.entry}>

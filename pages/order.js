@@ -30,6 +30,7 @@ export default function Order() {
     
         setModalTitle(name);
         setModalDescription(desc);
+        console.log(price);
         setModalPrice(price);
         setOpenStatus(!openStatus)
     }
@@ -37,10 +38,11 @@ export default function Order() {
     useEffect(()=> {}, [openStatus])
     
     useEffect(()=>{
+        console.log(items[1])
         if (Object.keys(lookup).includes(currItem['name'])) {
             const tmp = items.slice();
             tmp[lookup[currItem['name']]]['count'] = tmp[lookup[currItem['name']]]['count'] + currItem['count'];
-            tmp[lookup[currItem['name']]]['price'] = tmp[lookup[currItem['name']]]['price'] + currItem['price'] * currItem['count'];
+            tmp[lookup[currItem['name']]]['price'] = tmp[lookup[currItem['name']]]['count'] * currItem['price'];
             setItems(tmp);
             
             

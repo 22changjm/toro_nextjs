@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttoncontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 200px;
+    align-items: center;
+
+}
+
+.couple {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.option {
+    margin-left: 10px;
+}
+
+.radio {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+    transform: scale(1.5);
+}
