@@ -52,8 +52,8 @@ const Modal = (props) => {
                 <h1>{props.title}</h1>
                 <p>{props.description}</p>
                 {<CheckBox styleName={styles.checkBox}prices={prices}/>}
-                <div className={styles.txtTitle}> Notes&#58; </div>
-                <input type="text" id={styles.notes} Notes name="notes"/>
+                <div className={styles.txtTitle}> Notes (150 Characters)&#58; </div>
+                <textarea maxlength={150} id={styles.notes} name="notes"/>
                 <button id={styles.button} onClick={()=>{props.addToCart(props.title, props.price)}}className="buttoninverse">Add to Cart</button>
             </div>
             </div>

@@ -18,11 +18,11 @@ const CheckBox = (props) => {
                             {value[1]}
                         </div>
                     </div>);
-                }): <div className={styles.buttoncontainer}>
-                            <div className={styles.prices}>
+                }): 
+                            <div className={styles.singlePrice}>
                                 {`Price: ${props.prices}`}
                             </div>
-                        </div>
+
                 }
                 
             </div>
