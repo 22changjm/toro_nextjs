@@ -7,7 +7,7 @@ const CheckBox = (props) => {
             <div className={styles.container}>
                 {typeof props.prices === 'object' && props.prices !== null? Object.entries(props.prices).map((value, index)=> {
                     
-                    return (<div className={styles.buttoncontainer}>
+                    return (<div key={index} className={styles.buttoncontainer}>
                         <div className={styles.couple}> 
                             <input className={styles.radio} type="radio" value={value[0]} name="type" /> 
                             <div className={styles.option}>
