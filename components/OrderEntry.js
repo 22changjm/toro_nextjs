@@ -17,6 +17,11 @@ const orderEntry = (name, price, desc, onclick) => {
         console.log(price);
     }
 
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2
+      })
  
 
     return (
@@ -29,7 +34,7 @@ const orderEntry = (name, price, desc, onclick) => {
                         {desc}
                     </div>
                     <div className={styles.price}>
-                        {price}
+                        {formatter.format(price)}
                     </div>
                 </div>
         </div>
