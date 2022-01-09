@@ -14,7 +14,7 @@ const Modal = (props) => {
 
     const handleButtonClick = (price, choice) => {
         setCurrPrice(price);
-        setCurrChoice(props.title + ` (${choice})`)
+        setCurrChoice(` (${choice})`)
     }
 
     useEffect(async ()=>{
@@ -65,7 +65,17 @@ const Modal = (props) => {
                 <div className={styles.quantTitle}>Qty:</div>
                 <div className={styles.txtTitle}> Notes (150 Characters)&#58; </div>
                 <textarea maxLength={150} id={styles.notes} name="notes"/>
-                <button id={styles.button} onClick={()=>{props.addToCart(currChoice, currPrice)}}className="buttoninverse">Add to Cart</button>
+                <button id={styles.button} onClick={()=>{
+                    if (typeof prices === 'object' && prices !== null) {
+                        if (!currChoice) {
+                            alert("Please choose an option!")
+                        } else {
+                            props.addToCart(props.title + currChoice, currPrice)
+                        }
+                    } else {
+                        props.addToCart(props.title, currPrice)
+                    }
+                    }} className="buttoninverse">Add to Cart</button>
             </div>
             </div>
         </div>

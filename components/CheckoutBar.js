@@ -32,20 +32,22 @@ const CheckoutBar = (props) => {
  
     return (
         <div className={styles.container}>
-           <div className={styles.title}> Checkout Cart </div>
-                
+            <div className={styles.topcontainer}>
+            <div className={styles.title}> Checkout Cart </div>
+                    
 
-           
-           {   
-                Object.entries(props.items).map((value, index)=> {
-                return <CheckOutItem key={Object.entries(props.items)[index][1]['name']} name={Object.entries(props.items)[index][1]['name']} count={Object.entries(props.items)[index][1]['count']} price={Object.entries(props.items)[index][1]['price']}/> 
-               })
-           }
+            
+            {   
+                    Object.entries(props.items).map((value, index)=> {
+                    return <CheckOutItem key={Object.entries(props.items)[index][1]['name']} name={Object.entries(props.items)[index][1]['name']} count={Object.entries(props.items)[index][1]['count']} price={Object.entries(props.items)[index][1]['price']}/> 
+                })
+            }
+
+            </div>
 
             <div className={styles.footcontainer}>
-                <div className={styles.total}>{`Total: ${total}`}</div>
+                <div className={styles.total}>{`Subtotal: ${total}`}</div>
             </div>
-          
         </div>
     )
 }

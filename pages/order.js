@@ -7,9 +7,13 @@ import firebaseInit from '../firebase/initFirebase'
 import { getDatabase, ref, onValue} from "firebase/database";
 import CheckOutItem from "../components/CheckOutItem"
 import Modal from "../components/Modal";
+import KitchenOrderSection from '../components/KitchenOrderSection';
+import SushiBarOrderSection from '../components/SushiBarOrderSection';
+import OrderSide from '../components/OrderSide';
 
 
 export default function Order() {
+
 
     const [items, setItems] = useState([]);
     const [currItem, setCurrItem] = useState({})
@@ -76,26 +80,10 @@ export default function Order() {
       <Navigbar/>
       {openStatus && <Modal title={modalTitle} description={modalDescription} price={modalPrice} addToCart={AddToCheckout} handleClick={closeModal} />}
       <div className={styles.container}>
-          <div className={styles.menu}>
-            {OrderSection('Sushi Bar', 'Sushi and Sashimi', openModal)}
-            {OrderSection('Sushi Bar', 'Classic Rolls', openModal)}
-            {OrderSection('Sushi Bar', 'Baked Rolls', openModal)}
-            {OrderSection('Sushi Bar', 'Tempura Rolls', openModal)}
-            {OrderSection('Sushi Bar', 'Fresh Rolls', openModal)}
-            {OrderSection('Sushi Bar', 'Specialty Rolls', openModal)}
-            {OrderSection('Sushi Bar', 'Sushi Bar Special', openModal)}
-
-            {OrderSection('Kitchen', 'Appetizers', openModal)}
-            {OrderSection('Kitchen', 'Salads', openModal)}
-            {OrderSection('Kitchen', 'Toro Specialties', openModal)}
-            {OrderSection('Kitchen', 'Entrees', openModal)}
-            {OrderSection('Kitchen', 'Tempura', openModal)}
-            {OrderSection('Kitchen', 'Rice', openModal)}
-            {OrderSection('Kitchen', 'Noodles', openModal)}
-            {OrderSection('Kitchen', 'Soup', openModal)}
-            {OrderSection('Kitchen', 'Dessert', openModal)}
+          <div className={styles.leftcontainer}>
+              {OrderSide(openModal)}
           </div>
-          <div className={styles.placeholder}></div>
+          
           <CheckoutBar items={items}/>
       </div>
 

@@ -1,13 +1,11 @@
-.container {
-    width: 500px;
+.topcontainer {
     min-width: 500px;
     box-shadow: -5px 0px 6px -3px #d1d1d1;
-    position: fixed;
-    height: 70vh;
+    position: relative;
     overflow-y: scroll;
-    top: 154px;
-    border-bottom: solid black 20px;
+    border-top: solid black 20px;
     border-radius: 18px;
+    min-height: 60%;
 }
 
 .title {
@@ -17,16 +15,35 @@
 }
 
 .footcontainer {
-    position: fixed;
+    position: relative;
     min-width: 500px;
     width: 500px;
-    height: 17.8vh;
-    bottom:0;
     box-shadow: -5px 0px 6px -3px #d1d1d1;
     font-size: 30px;
+    border-bottom: solid black 20px;
+    border-radius: 18px;
+    min-height: 40%;
+
+
+}
+
+.container {
+    width: 500px;
+    max-height: calc(100vh - 154px);
+    position: sticky;
+    top: 154px;
 }
 
 .total {
     text-align: center;
-    margin:20px;
+    padding-top: 30px;
 }
+
+@media only screen and (max-width: 768px) {
+    
+    .container {
+        display: none;
+    }
+
+}
+
