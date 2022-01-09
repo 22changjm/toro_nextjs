@@ -11,8 +11,31 @@ import KitchenOrderSection from '../components/KitchenOrderSection';
 import SushiBarOrderSection from '../components/SushiBarOrderSection';
 import OrderSide from '../components/OrderSide';
 
+import {loadStripe} from '@stripe/stripe-js'
+import {Elements} from '@stripe/react-stripe-js'
+
 
 export default function Order() {
+
+    const [publishableKey, setPublishableKey] = useState('');
+
+    useEffect(()=> {
+        fetch('api/keys', {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
+        }).then((res)=> res.json())
+        .then((data)=> {
+            setPublishableKey(data.publishableKey);
+        })
+    }, [])
+
+    useEffect(()=> {
+        if (publishableKey === "") {
+            return;
+        }
+        const stripe = loadStripe(publishableKey);
+    }, [publishableKey])
+
 
 
     const [items, setItems] = useState([]);
@@ -24,6 +47,7 @@ export default function Order() {
     const [modalTitle, setModalTitle] = useState("");
     const [modalDescription, setModalDescription] = useState("");
     const [modalPrice, setModalPrice] = useState(0);
+    
 
     const closeModal = () => {
 
@@ -108,6 +132,7 @@ export default function Order() {
             }
         }
     }
+
   return (
     <>
       <Navigbar/>
