@@ -66,9 +66,25 @@
   
   .quantTitle {
     position: absolute;
-    top: 100px;
+    top: 130px;
     left: 20px;
 
+  }
+
+  .quantContainer {
+    position: absolute;
+    top: 130px;
+    left:60px;
+  }
+
+  .minus{
+    margin-left:5px;
+    margin-right:5px;
+  }
+
+  .plus{
+    margin-left:5px;
+    margin-right: 5px;
   }
   
   

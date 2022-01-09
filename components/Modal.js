@@ -63,6 +63,9 @@ const Modal = (props) => {
                 <p>{props.description}</p>
                 {<CheckBox buttonClick={handleButtonClick} styleName={styles.checkBox}prices={prices}/>}
                 <div className={styles.quantTitle}>Qty:</div>
+                <div className={styles.quantContainer}>
+                <button onClick={() => {currQuant===1? null: setCurrQuant(currQuant - 1)} }className={styles.minus}>-</button> {currQuant} <button onClick={() => {setCurrQuant(currQuant + 1)}}className={styles.plus}>+</button>
+                </div>
                 <div className={styles.txtTitle}> Notes (150 Characters)&#58; </div>
                 <textarea maxLength={150} id={styles.notes} name="notes"/>
                 <button id={styles.button} onClick={()=>{
@@ -70,10 +73,10 @@ const Modal = (props) => {
                         if (!currChoice) {
                             alert("Please choose an option!")
                         } else {
-                            props.addToCart(props.title + currChoice, currPrice)
+                            props.addToCart(props.title + currChoice, currPrice, currQuant)
                         }
                     } else {
-                        props.addToCart(props.title, currPrice)
+                        props.addToCart(props.title, currPrice, currQuant)
                     }
                     }} className="buttoninverse">Add to Cart</button>
             </div>

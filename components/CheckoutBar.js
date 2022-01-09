@@ -14,8 +14,7 @@ const CheckoutBar = (props) => {
     const calculateTotal = (items) => {
         const total = 0;
         for (const i = 0; i < items.length; i++) {
-            console.log(items[i])
-            if (Object.keys(items[i]).includes('price')) {
+            if (items[i] !== null && Object.keys(items[i]).includes('price')) {
                 total += items[i]['price']
             }
         }
@@ -39,7 +38,10 @@ const CheckoutBar = (props) => {
             
             {   
                     Object.entries(props.items).map((value, index)=> {
-                    return <CheckOutItem key={Object.entries(props.items)[index][1]['name']} name={Object.entries(props.items)[index][1]['name']} count={Object.entries(props.items)[index][1]['count']} price={Object.entries(props.items)[index][1]['price']}/> 
+                        if (index===0 || value[1] === null) {
+                            return;
+                        }
+                    return <CheckOutItem changeQuant={props.changeQuant} key={Object.entries(props.items)[index][1]['name']} name={Object.entries(props.items)[index][1]['name']} count={Object.entries(props.items)[index][1]['count']} price={Object.entries(props.items)[index][1]['price']}/> 
                 })
             }
 

@@ -65,15 +65,48 @@ export default function Order() {
     }, [currItem])
 
 
-    const AddToCheckout = async (id, price) => {
+    const AddToCheckout = async (id, price, quant) => {
         setCurrItem({
             name: id,
-            price: price,
-            count: 1
+            price: price * quant,
+            count: quant
         });
         setOpenStatus(!openStatus)
+        console.log(items)
+
   
 
+    }
+
+    const changeQuant = (sign, name) => {
+        const clone = items.slice();
+        if (sign === "+") {
+            for (const item in clone) {
+                if (clone[item] !== null && clone[item]['name'] === name) {
+                    const pricePerItem = clone[item]['price'] / clone[item]['count'];
+                    clone[item]['count'] += 1;
+                    clone[item]['price'] += pricePerItem;
+                    setItems(clone);
+                }
+            }
+        } else {
+            for (const item in clone) {
+                if (clone[item] !== null && clone[item]['name'] === name) {
+                    if (clone[item]['count'] === 1) {
+                        clone[item] = null;
+                        const cloneLookup = Object.assign({}, lookup)
+                        delete cloneLookup[name];
+                        setLookup(cloneLookup)
+                        setItems(clone)
+                    } else {
+                        const pricePerItem = clone[item]['price'] / clone[item]['count'];
+                        clone[item]['count'] -= 1;
+                        clone[item]['price'] -= pricePerItem;
+                        setItems(clone);
+                    }
+                }
+            }
+        }
     }
   return (
     <>
@@ -84,7 +117,7 @@ export default function Order() {
               {OrderSide(openModal)}
           </div>
           
-          <CheckoutBar items={items}/>
+          <CheckoutBar changeQuant={changeQuant} items={items}/>
       </div>
 
 

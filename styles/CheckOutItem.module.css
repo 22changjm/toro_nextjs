@@ -19,3 +19,18 @@
     margin-left: 20px;
 }
 
+.quantcontainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.minus {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.plus {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
