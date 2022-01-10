@@ -6,7 +6,7 @@ import styles from '../styles/Navigbar.module.css'
 const OrderNavBar = () => {
     return (
       <>
-         <Navbar sticky="top" collapseOnSelect expand="lg" bg="white" variant="light">
+         <Navbar className={styles.test} sticky="top" collapseOnSelect expand="lg" bg="white" variant="light">
             <Navbar.Toggle className={styles.endMargin} aria-controls="responsive-navbar-nav" />
             
 
@@ -15,7 +15,7 @@ const OrderNavBar = () => {
             <Image
               src='/assets/toro-logo.png' 
               width="120%" 
-              height="120%" 
+              height="80%" 
               alt="toro" 
               objectFit="contain"
               />
