@@ -11,7 +11,7 @@ const Navigbar = () => {
             <Image
               src='/assets/toro-logo.png' 
               width="120%" 
-              height="120%" 
+              height="80%" 
               alt="toro" 
               objectFit="contain"
               />
