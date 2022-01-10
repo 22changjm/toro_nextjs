@@ -11,12 +11,27 @@
     margin-right: 2vw;
 }
 
+.cart {
+    display: none;
+}
+
+
 @media only screen and (max-width: 768px) {
 .routes {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+}
+
+.cart {
+    display:inline;
+    width: 45px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 20px;
+    cursor: pointer;
 }
 
 }

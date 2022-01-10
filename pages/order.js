@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import Navigbar from '../components/Navigbar'
+import OrderNavBar from '../components/OrderNavBar'
 import OrderSection from '../components/OrderSection';
 import styles from '../styles/Order.module.css'
 import CheckoutBar from '../components/CheckoutBar';
@@ -135,7 +135,7 @@ export default function Order() {
 
   return (
     <>
-      <Navigbar/>
+      <OrderNavBar />
       {openStatus && <Modal title={modalTitle} description={modalDescription} price={modalPrice} addToCart={AddToCheckout} handleClick={closeModal} />}
       <div className={styles.container}>
           <div className={styles.leftcontainer}>
