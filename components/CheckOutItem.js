@@ -21,7 +21,7 @@ const CheckOutItem = (props) => {
             </div> 
             {
               props.desc ? <div className={styles.notes}>
-              Notes: "{props.desc}"
+              Notes: &quot;{props.desc}&quot;
             </div>: null
             }
         </div>
