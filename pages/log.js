@@ -8,7 +8,7 @@ import {useState, useEffect} from 'react';
 import ReceiptItem from '../components/ReceiptItem';
 
 
-export default function log() {
+export default function Log() {
 
     const [order, setOrder] = useState([]);
 
