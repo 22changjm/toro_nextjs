@@ -168,14 +168,14 @@
       width: 80vw;
       position: absolute;
       height: 80px;
-      top: 58vh;
+      top: 56vh;
       left: 10vw;
       border: 1px solid black;
     }
 
     .txtTitle {
       position: absolute;
-      top: 55vh;
+      top: 53vh;
       left: 10vw;
     }
 
