@@ -8,7 +8,7 @@ import {useState, useEffect} from 'react';
 import ReceiptItem from '../components/ReceiptItem';
 
 
-export default function success() {
+export default function Success() {
 
     const router = useRouter();
 
@@ -27,6 +27,7 @@ export default function success() {
 
  
 
+    
 
     
     
