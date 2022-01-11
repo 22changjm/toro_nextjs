@@ -34,15 +34,11 @@ export default async function handler(req, res) {
             const incompleteRef = ref(db, 'incomplete/' + session.id);
             onValue(incompleteRef, (snapshot)=> {
                 const data = snapshot.val();
-                set(incompleteRef, null);
                 set(ref(db, 'complete/' + session.id), data)
+                res.json({set: data })
             })
-
-        } else if (event.type === 'checkout.session.expired') {
-            const session = event.data.object;
-            const incompleteRef = ref(db, 'incomplete/' + session.id);
-            set(incompleteRef, null);
         }
+
 
         res.json({received: true});
     } else {
