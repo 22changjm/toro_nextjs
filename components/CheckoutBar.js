@@ -5,6 +5,12 @@ import CheckOutItem from './CheckOutItem';
 
 const CheckoutBar = (props) => {
 
+    const [name, setName] = useState("");
+
+    const handleText = (event) => {
+        setName(event.target.value)
+    }
+
     const [total, setTotal] = useState("0.00");
 
     useEffect(()=> {
@@ -49,7 +55,17 @@ const CheckoutBar = (props) => {
 
             <div className={styles.footcontainer}>
                 <div className={styles.total}>{`Subtotal: ${total}`}</div>
-                <button onClick={props.checkout} id={styles.checkout} className="buttoninverse">
+                <input className={styles.name} onChange={handleText} placeholder="Name" type="text" id="name" name="name"/>
+                <button onClick={() => {
+                    console.log(total);
+                    if (total === "$0.00") {
+                        alert("Please add items to cart before checking out.")
+                        return;
+                    } else if (name === "") {
+                        alert("Please add your name.")
+                        return;
+                    }
+                    props.checkout(name)}} id={styles.checkout} className="buttoninverse">
                     Checkout
                 </button>
             </div>

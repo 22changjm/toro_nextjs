@@ -8,7 +8,7 @@ import getStripe from '../components/get-stripe';
 import axios from 'axios';
 import MobileCheckout from '../components/MobileCheckout';
 import firebaseInit from '../firebase/initFirebase';
-import { getDatabase, ref, onValue} from "firebase/database";
+import { getDatabase, ref, onValue, set} from "firebase/database";
 
 
 
@@ -38,8 +38,7 @@ export default function Order() {
         setMobileStatus((prev) => !prev);
     }
 
-    const redirectToCheckout = async () => {
-        console.log(items)
+    const redirectToCheckout = async (name) => {
         
         const {
             data: {id},
@@ -47,9 +46,28 @@ export default function Order() {
             items: Object.entries(items.slice(1)).filter(arr => arr[1]).map(([_, {name, count, desc}]) => ({
                 price: priceLookup[name],
                 quantity: count,
+            
             })),
         });
+        const prods = Object.entries(items.slice(1)).filter(arr=> arr[1])
+        const dict = {};
 
+        dict['name'] = name;
+        dict['timestamp'] = new Date().toLocaleDateString('en-US');
+        dict['timestamp'] += " ";
+        dict['timestamp'] += new Date().toLocaleTimeString('us-PT')
+
+
+        for (const entry in prods) {
+            dict[prods[entry][1]['name']] = {
+                quantity: prods[entry][1]['count'],
+                note: prods[entry][1]['desc'],
+                price: prods[entry][1]['price'],
+            }
+        }
+        
+        set(ref(db, 'incomplete/' + id), dict) 
+        
         const stripe = await getStripe();
         await stripe.redirectToCheckout({sessionId: id}); 
         
