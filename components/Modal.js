@@ -80,7 +80,7 @@ const Modal = (props) => {
                     } else {
                         props.addToCart(props.title, currPrice, currQuant)
                     }
-                    }} id={styles.button} className="buttoninverse">Add to Cart</button>
+                    }} className="buttoninverse">Add to Cart</button>
             </div>
             </div>
         </div>
