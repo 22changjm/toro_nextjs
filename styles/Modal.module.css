@@ -161,7 +161,7 @@
     .checkBox {
       position: absolute;
       left: auto;
-      top: 33vh;
+      top: 31vh;
     }
 
     #notes{
@@ -212,7 +212,7 @@
 
     .countContainer {
       position: absolute;
-      top: 28vh;
+      top: 26vh;
       left: 35%;
     }
 
