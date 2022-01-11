@@ -147,7 +147,7 @@
     }
     .modal {
       width: 100vw;
-      min-height: 100vh;
+      min-height: 80vh;
       z-index: 999999999;
     }
 
@@ -161,21 +161,21 @@
     .checkBox {
       position: absolute;
       left: auto;
-      top: 40vh;
+      top: 35vh;
     }
 
     #notes{
       width: 80vw;
       position: absolute;
       height: 80px;
-      top: 70vh;
+      top: 58vh;
       left: 10vw;
       border: 1px solid black;
     }
 
     .txtTitle {
       position: absolute;
-      top: 66vh;
+      top: 55vh;
       left: 10vw;
     }
 
@@ -183,7 +183,7 @@
       position: absolute;
       bottom: auto;
       right: auto;
-      top: 88vh;
+      top: 70vh;
       text-align:center;
       width: 87vw;
     }
@@ -212,7 +212,7 @@
 
     .countContainer {
       position: absolute;
-      top: 35vh;
+      top: 30vh;
       left: 35%;
     }
 
