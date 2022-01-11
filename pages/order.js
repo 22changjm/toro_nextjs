@@ -7,11 +7,20 @@ import OrderSide from '../components/OrderSide';
 import getStripe from '../components/get-stripe';
 import axios from 'axios';
 import MobileCheckout from '../components/MobileCheckout';
+import firebaseInit from '../firebase/initFirebase';
+import { getDatabase, ref, onValue} from "firebase/database";
+
 
 
 
 export default function Order() {
-
+    let priceLookup = null;
+    const app = firebaseInit();
+    const db = getDatabase(app);
+    const stripeLookup = ref(db,`/Stripe`);
+    onValue(stripeLookup, (snapshot) => {
+        priceLookup = snapshot.val();
+    })
 
     const [items, setItems] = useState([]);
     const [currItem, setCurrItem] = useState({})
@@ -30,17 +39,19 @@ export default function Order() {
     }
 
     const redirectToCheckout = async () => {
+        console.log(items)
+        
         const {
             data: {id},
         } = await axios.post('/api/checkout_sessions', {
-            items: Object.entries(items.slice(1)).map(([_, {name, count}]) => ({
-                price: "price_1KCWPpAMCx4NZbAhcHXINv6C",
-                quantity: 1,
+            items: Object.entries(items.slice(1)).filter(arr => arr[1]).map(([_, {name, count, desc}]) => ({
+                price: priceLookup[name],
+                quantity: count,
             })),
         });
 
         const stripe = await getStripe();
-        await stripe.redirectToCheckout({sessionId: id});
+        await stripe.redirectToCheckout({sessionId: id}); 
         
 
     };
@@ -68,6 +79,7 @@ export default function Order() {
             const tmp = items.slice();
             tmp[lookup[currItem['name']]]['count'] = tmp[lookup[currItem['name']]]['count'] + currItem['count'];
             tmp[lookup[currItem['name']]]['price'] = tmp[lookup[currItem['name']]]['count'] * currItem['price'];
+            tmp[lookup[currItem['name']]]['desc'] = currItem['desc'];
             setItems(tmp);
             
             
@@ -86,11 +98,12 @@ export default function Order() {
     }, [currItem])
 
 
-    const AddToCheckout = async (id, price, quant) => {
+    const AddToCheckout = async (id, price, quant, description) => {
         setCurrItem({
             name: id,
             price: price * quant,
-            count: quant
+            count: quant,
+            desc: description,
         });
         setOpenStatus(!openStatus)
   

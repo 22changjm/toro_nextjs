@@ -11,6 +11,7 @@ const Modal = (props) => {
     const [currPrice, setCurrPrice] = useState();
     const [currQuant, setCurrQuant] = useState(1);
     const [currChoice, setCurrChoice] = useState("");
+    const [description, setDescription] = useState("");
 
     const handleButtonClick = (price, choice) => {
         setCurrPrice(price);
@@ -48,10 +49,12 @@ const Modal = (props) => {
             setPrices(res['price']);
             setCurrPrice(res['price'])
         }
-        console.log(res['price']);
 
     }, [props.title]);
 
+    const handleText = (event) => {
+        setDescription(event.target.value)
+    }
 
     return (
         <div className={styles.container}>
@@ -69,16 +72,16 @@ const Modal = (props) => {
                     </div>
                 </div>
                 <div className={styles.txtTitle}> Notes (150 Characters)&#58; </div>
-                <textarea maxLength={150} id={styles.notes} name="notes"/>
+                <textarea maxLength={150} onChange={handleText} id={styles.notes} name="notes"/>
                 <button id={styles.button} onClick={()=>{
                     if (typeof prices === 'object' && prices !== null) {
                         if (!currChoice) {
                             alert("Please choose an option!")
                         } else {
-                            props.addToCart(props.title + currChoice, currPrice, currQuant)
+                            props.addToCart(props.title + currChoice, currPrice, currQuant, description)
                         }
                     } else {
-                        props.addToCart(props.title, currPrice, currQuant)
+                        props.addToCart(props.title, currPrice, currQuant, description)
                     }
                     }} className="buttoninverse">Add to Cart</button>
             </div>

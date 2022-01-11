@@ -9,8 +9,8 @@ const CheckOutItem = (props) => {
       })
 
     return (
-        
-           <div className={styles.container}>
+        <div className={styles.outer}>
+            <div className={styles.container}>
                <div className={styles.name}>{props.name}</div>
                <div className={styles.quantcontainer}>
                     <button onClick={() => { props.changeQuant("-", props.name)}} className={styles.minus}>-</button> 
@@ -19,6 +19,13 @@ const CheckOutItem = (props) => {
                </div>
                <div className={styles.price}>{formatter.format(props.price)}</div>
             </div> 
+            {
+              props.desc ? <div className={styles.notes}>
+              Notes: "{props.desc}"
+            </div>: null
+            }
+        </div>
+           
     )
 }
 

@@ -22,6 +22,7 @@
 .quantcontainer {
     display: flex;
     flex-direction: row;
+    height: 30px
 }
 
 .minus {
@@ -32,5 +33,19 @@
 .plus {
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.outer {
+    display:flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 1vh;
+    margin: 5px;
+}
+
+.notes {
+    position: relative;
+    margin-top: 1vh;
+    margin-left: 20px
 }
 
