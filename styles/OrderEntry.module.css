@@ -25,8 +25,8 @@
 .entry {
     border: 3px solid black;
     border-radius: 5px;
-    width: 372px;
-    height: 102px;
+    width: 400px;
+    height: 125px;
     margin: 1.5vw;
     position: relative;
     cursor:pointer;
