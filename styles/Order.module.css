@@ -19,3 +19,8 @@
     flex-direction: row;
     justify-content: center;
 }
+
+.buttondesc {
+    text-align: center;
+    margin-bottom: 2vh;
+}

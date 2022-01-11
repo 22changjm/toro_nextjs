@@ -6,6 +6,7 @@ import Modal from "../components/Modal";
 import OrderSide from '../components/OrderSide';
 import getStripe from '../components/get-stripe';
 import axios from 'axios';
+import MobileCheckout from '../components/MobileCheckout';
 
 
 
@@ -21,6 +22,12 @@ export default function Order() {
     const [modalTitle, setModalTitle] = useState("");
     const [modalDescription, setModalDescription] = useState("");
     const [modalPrice, setModalPrice] = useState(0);
+
+    const [mobileStatus, setMobileStatus] = useState(false);
+
+    const toggleMobile = () => {
+        setMobileStatus((prev) => !prev);
+    }
 
     const redirectToCheckout = async () => {
         const {
@@ -123,7 +130,8 @@ export default function Order() {
 
   return (
     <>
-      <OrderNavBar />
+      <OrderNavBar toggle={toggleMobile} />
+      {mobileStatus && <MobileCheckout checkout={redirectToCheckout} changeQuant={changeQuant} items={items} />}
       {openStatus && <Modal title={modalTitle} description={modalDescription} price={modalPrice} addToCart={AddToCheckout} handleClick={closeModal} />}
       <div className={styles.container}>
           <div className={styles.leftcontainer}>

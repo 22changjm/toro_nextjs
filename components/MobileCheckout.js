@@ -1,9 +1,9 @@
-import styles from '../styles/CheckoutBar.module.css'
+import styles from '../styles/MobileCheckoutBar.module.css'
 import { useEffect, useState } from 'react';
 import CheckOutItem from './CheckOutItem';
 
 
-const CheckoutBar = (props) => {
+const MobileCheckout = (props) => {
 
     const [total, setTotal] = useState("0.00");
 
@@ -57,4 +57,4 @@ const CheckoutBar = (props) => {
     )
 }
 
-export default CheckoutBar
+export default MobileCheckout

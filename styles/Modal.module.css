@@ -41,9 +41,6 @@
     background: rgba(0, 0, 0, 0.6);
   }
   .modalguts {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -142,6 +139,12 @@
   }
 
   @media only screen and (max-width: 768px) {
+
+    .modalguts {
+      display: flex;
+    flex-direction: row;
+    justify-content: center;
+    }
     .modal {
       width: 100vw;
       min-height: 100vh;

@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Image from 'next/image'
 import styles from '../styles/Navigbar.module.css'
 
-const OrderNavBar = () => {
+const OrderNavBar = (props) => {
     return (
       <>
          <Navbar className={styles.test} sticky="top" collapseOnSelect expand="lg" bg="white" variant="light">
@@ -21,7 +21,7 @@ const OrderNavBar = () => {
               />
            </Navbar.Brand>
 
-           <img className={styles.cart} src="/assets/cart.svg" alt="cart"/>
+           <img onClick={props.toggle} className={styles.cart} src="/assets/cart.svg" alt="cart"/>
            <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className={styles.routes}>
                 <Nav.Link href="/">Welcome</Nav.Link>

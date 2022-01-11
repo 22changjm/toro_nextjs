@@ -9,6 +9,9 @@ const OrderSide = (openModal) => {
 
     return (
         <div>
+            <div className={styles.buttondesc}>
+            Click On the Following Options to Display the Corresponding Menu
+            </div>
             <div className={styles.buttoncontainer}> 
                 <button className="buttoninverse" onClick={() => {setState(<KitchenOrderSection openModal={openModal} />)}}>Kitchen</button>
                 <button className="buttoninverse" onClick={() => {setState(<SushiBarOrderSection openModal={openModal} />)}}>Sushi Bar</button>
