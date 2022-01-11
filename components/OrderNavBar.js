@@ -10,7 +10,7 @@ const OrderNavBar = () => {
             <Navbar.Toggle className={styles.endMargin} aria-controls="responsive-navbar-nav" />
             
 
-           <Navbar.Brand className={styles.endMargin} href="/">
+           <Navbar.Brand id={styles.logo} className={styles.endMargin} href="/">
     
             <Image
               src='/assets/toro-logo.png' 

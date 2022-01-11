@@ -49,6 +49,9 @@ const CheckoutBar = (props) => {
 
             <div className={styles.footcontainer}>
                 <div className={styles.total}>{`Subtotal: ${total}`}</div>
+                <button onClick={props.checkout} className="buttoninverse">
+                    Checkout
+                </button>
             </div>
         </div>
     )

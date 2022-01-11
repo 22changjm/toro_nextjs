@@ -1,41 +1,15 @@
 import {useState, useEffect} from 'react';
 import OrderNavBar from '../components/OrderNavBar'
-import OrderSection from '../components/OrderSection';
 import styles from '../styles/Order.module.css'
 import CheckoutBar from '../components/CheckoutBar';
-import firebaseInit from '../firebase/initFirebase'
-import { getDatabase, ref, onValue} from "firebase/database";
-import CheckOutItem from "../components/CheckOutItem"
 import Modal from "../components/Modal";
-import KitchenOrderSection from '../components/KitchenOrderSection';
-import SushiBarOrderSection from '../components/SushiBarOrderSection';
 import OrderSide from '../components/OrderSide';
+import getStripe from '../components/get-stripe';
+import axios from 'axios';
 
-import {loadStripe} from '@stripe/stripe-js'
-import {Elements} from '@stripe/react-stripe-js'
 
 
 export default function Order() {
-
-    const [publishableKey, setPublishableKey] = useState('');
-
-    useEffect(()=> {
-        fetch('api/keys', {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'}
-        }).then((res)=> res.json())
-        .then((data)=> {
-            setPublishableKey(data.publishableKey);
-        })
-    }, [])
-
-    useEffect(()=> {
-        if (publishableKey === "") {
-            return;
-        }
-        const stripe = loadStripe(publishableKey);
-    }, [publishableKey])
-
 
 
     const [items, setItems] = useState([]);
@@ -47,6 +21,22 @@ export default function Order() {
     const [modalTitle, setModalTitle] = useState("");
     const [modalDescription, setModalDescription] = useState("");
     const [modalPrice, setModalPrice] = useState(0);
+
+    const redirectToCheckout = async () => {
+        const {
+            data: {id},
+        } = await axios.post('/api/checkout_sessions', {
+            items: Object.entries(items.slice(1)).map(([_, {name, count}]) => ({
+                price: "price_1KCWPpAMCx4NZbAhcHXINv6C",
+                quantity: 1,
+            })),
+        });
+
+        const stripe = await getStripe();
+        await stripe.redirectToCheckout({sessionId: id});
+        
+
+    };
     
 
     const closeModal = () => {
@@ -96,8 +86,6 @@ export default function Order() {
             count: quant
         });
         setOpenStatus(!openStatus)
-        console.log(items)
-
   
 
     }
@@ -142,7 +130,7 @@ export default function Order() {
               {OrderSide(openModal)}
           </div>
           
-          <CheckoutBar changeQuant={changeQuant} items={items}/>
+          <CheckoutBar checkout={redirectToCheckout} changeQuant={changeQuant} items={items}/>
       </div>
 
 

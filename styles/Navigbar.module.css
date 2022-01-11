@@ -8,6 +8,7 @@
 
 .endMargin {
     margin-left: 20px;
+    margin-right: 20px;
 }
 
 .cart {
@@ -36,4 +37,13 @@
 .cart:hover {
     opacity:50%;
 }
+
+.endMargin {
+    margin-right: 0;
+}
+
+#logo {
+    margin-left: 0;
+}
+
 }

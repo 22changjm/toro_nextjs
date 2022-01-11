@@ -54,17 +54,19 @@ const Modal = (props) => {
 
 
     return (
-        <div>
+        <div className={styles.container}>
             <div className={styles.modaloverlay} id={styles.modaloverlay}></div>
             <div className={styles.modal} id={styles.modal}>
             <button onClick={props.handleClick} className={styles.closebutton} id={styles.closebutton}>X</button>
             <div className={styles.modalguts}>
-                <h1>{props.title}</h1>
-                <p>{props.description}</p>
+                <h1 className={styles.title}>{props.title}</h1>
+                <p className={styles.description}>{props.description}</p>
                 {<CheckBox buttonClick={handleButtonClick} styleName={styles.checkBox}prices={prices}/>}
-                <div className={styles.quantTitle}>Qty:</div>
-                <div className={styles.quantContainer}>
-                <button onClick={() => {currQuant===1? null: setCurrQuant(currQuant - 1)} }className={styles.minus}>-</button> {currQuant} <button onClick={() => {setCurrQuant(currQuant + 1)}}className={styles.plus}>+</button>
+                <div className={styles.countContainer}>
+                    <div className={styles.quantTitle}>Qty:</div>
+                    <div className={styles.quantContainer}>
+                    <button onClick={() => {currQuant===1? null: setCurrQuant(currQuant - 1)} }className={styles.minus}>-</button> {currQuant} <button onClick={() => {setCurrQuant(currQuant + 1)}}className={styles.plus}>+</button>
+                    </div>
                 </div>
                 <div className={styles.txtTitle}> Notes (150 Characters)&#58; </div>
                 <textarea maxLength={150} id={styles.notes} name="notes"/>
@@ -78,7 +80,7 @@ const Modal = (props) => {
                     } else {
                         props.addToCart(props.title, currPrice, currQuant)
                     }
-                    }} className="buttoninverse">Add to Cart</button>
+                    }} id={styles.button} className="buttoninverse">Add to Cart</button>
             </div>
             </div>
         </div>
