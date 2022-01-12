@@ -38,7 +38,7 @@
     width: 65vw;
     max-width: 100%;
     object-fit: cover;
-    object-position: 100% 100%;
+    object-position: 100% 55%;
 }
 
 .mobileLogo {
@@ -57,7 +57,7 @@
     .homePhoto {
         width: 100%;
         object-fit: cover;
-        object-position: 60% 50%;
+        object-position: 0% 30%;
     }
 
     .header {
