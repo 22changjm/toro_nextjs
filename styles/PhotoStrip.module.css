@@ -24,5 +24,7 @@
         height: 25vw;
         object-fit: scale-down;
         margin: 1vw;
+        width: 80vw;
+        height: auto;
     }
  }
