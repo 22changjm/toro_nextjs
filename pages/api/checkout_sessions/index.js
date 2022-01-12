@@ -11,7 +11,8 @@ export default async function handler(req, res) {
                 line_items: req?.body?.items ?? [],
                 success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
                 cancel_url: `${req.headers.origin}/order`,
-                expires_at: Math.round(Date.now() / 1000) + 3600
+                expires_at: Math.round(Date.now() / 1000) + 3600,
+                allow_promotion_codes: true,
             });
 
             res.status(200).json(session);
