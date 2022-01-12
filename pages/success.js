@@ -6,6 +6,7 @@ import firebaseInit from '../firebase/initFirebase'
 import { getDatabase, ref, onValue, set} from "firebase/database";
 import {useState, useEffect} from 'react';
 import ReceiptItem from '../components/ReceiptItem';
+import Head from 'next/head';
 
 
 export default function Success() {
@@ -36,6 +37,11 @@ export default function Success() {
 
     return (
       <>
+      <Head>
+        <title>Toro Fusion Grill</title>
+        <meta name="description" content="Toro Fusion Grill located at 1818 L Street Bakersfield, CA 93301" />
+        <link rel="icon" href="/assets/toro_icon.png" /> 
+      </Head>
         <Navigbar/>
         <div className={styles.container}>
             <div className={styles.title}> Thank you for your Order! </div>

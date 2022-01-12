@@ -1,10 +1,17 @@
 import Navigbar from '../components/Navigbar'
 import Footer from '../components/Footer'
 import styles from '../styles/Reviews.module.css'
+import Head from 'next/head';
+
 
 export default function Reviews() {
   return (
     <>
+    <Head>
+        <title>Toro Fusion Grill</title>
+        <meta name="description" content="Toro Fusion Grill located at 1818 L Street Bakersfield, CA 93301" />
+        <link rel="icon" href="/assets/toro_icon.png" /> 
+      </Head>
       <Navigbar/>
       <div className={styles.container}>
             <img className={styles.homePhoto} src='/assets/sake.png' alt="review photo" />

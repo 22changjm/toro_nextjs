@@ -7,6 +7,7 @@ import Kitchen from '../components/Kitchen'
 import LunchSpecial from '../components/LunchSpecial'
 import SushiBar from '../components/SushiBar';
 
+
 export default function Menu() {
 
     const [state, setState] = useState(<Kitchen />);
@@ -26,6 +27,11 @@ export default function Menu() {
     }
   return (
     <>
+    <Head>
+        <title>Toro Fusion Grill</title>
+        <meta name="description" content="Toro Fusion Grill located at 1818 L Street Bakersfield, CA 93301" />
+        <link rel="icon" href="/assets/toro_icon.png" /> 
+      </Head>
       <Navigbar/>
       <h1 className={styles.title}>Our Menu</h1>
       <p className={styles.body}>Click On the Following Options to Display the Corresponding Menu</p>

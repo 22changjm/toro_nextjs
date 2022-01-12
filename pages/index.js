@@ -8,6 +8,7 @@ import styles from '../styles/Home.module.css'
 import Footer from '../components/Footer'
 import firebase from '../firebase/initFirebase'
 
+
 firebase()
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
       <Head>
         <title>Toro Fusion Grill</title>
         <meta name="description" content="Toro Fusion Grill located at 1818 L Street Bakersfield, CA 93301" />
-        <link rel="icon" href="/favicon.ico" /> 
+        <link rel="icon" href="/assets/toro_icon.png" /> 
       </Head>
       <Navigbar/>
       <PhotoLogoStrip />

@@ -9,6 +9,8 @@ import axios from 'axios';
 import MobileCheckout from '../components/MobileCheckout';
 import firebaseInit from '../firebase/initFirebase';
 import { getDatabase, ref, onValue, set} from "firebase/database";
+import Head from 'next/head';
+
 
 
 
@@ -176,6 +178,11 @@ export default function Order() {
 
   return (
     <>
+    <Head>
+        <title>Toro Fusion Grill</title>
+        <meta name="description" content="Toro Fusion Grill located at 1818 L Street Bakersfield, CA 93301" />
+        <link rel="icon" href="/assets/toro_icon.png" /> 
+      </Head>
       <OrderNavBar numItems={numItems} toggle={toggleMobile} />
       {mobileStatus && <MobileCheckout checkout={redirectToCheckout} changeQuant={changeQuant} items={items} />}
       {openStatus && <Modal title={modalTitle} description={modalDescription} price={modalPrice} addToCart={AddToCheckout} handleClick={closeModal} />}
