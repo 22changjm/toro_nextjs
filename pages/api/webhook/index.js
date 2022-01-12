@@ -34,7 +34,7 @@ export default async function handler(req, res) {
             const incompleteRef = ref(db, 'incomplete/' + session.id);
             get(incompleteRef).then((snapshot)=> {
                 if (snapshot.exists()) {
-                    set(ref(db, 'complete/' + session.id), data)
+                    set(ref(db, 'complete/' + session.id), snapshot.val())
                 }
             })
         }
