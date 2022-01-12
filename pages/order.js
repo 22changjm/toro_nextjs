@@ -68,8 +68,8 @@ export default function Order() {
         
         set(ref(db, 'incomplete/' + id), dict) 
         
-        /*const stripe = await getStripe();
-        await stripe.redirectToCheckout({sessionId: id}); */
+        const stripe = await getStripe();
+        await stripe.redirectToCheckout({sessionId: id}); 
         
 
     };
