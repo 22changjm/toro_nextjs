@@ -10,6 +10,7 @@ import MobileCheckout from '../components/MobileCheckout';
 import firebaseInit from '../firebase/initFirebase';
 import { getDatabase, ref, onValue, set} from "firebase/database";
 import Head from 'next/head';
+import Footer from '../components/Footer';
 
 
 
@@ -193,6 +194,7 @@ export default function Order() {
           
           <CheckoutBar checkout={redirectToCheckout} changeQuant={changeQuant} items={items}/>
       </div>
+      <Footer />
 
 
 
