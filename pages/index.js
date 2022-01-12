@@ -21,7 +21,7 @@ export default function Home() {
       <Navigbar/>
       <PhotoLogoStrip />
       <p id={styles.open}> <mark className={styles.mark}>We have relocated to 1818 L Street Bakersfield, CA</mark></p>
-      <img className={styles.homePhoto} src='/assets/background.jpeg' alt="review photo" />
+      <img className={styles.homePhoto} src='/assets/background.png' alt="review photo" />
       <FavoriteStrip />
       <PhotoStrip />
       <ReviewStrip />
