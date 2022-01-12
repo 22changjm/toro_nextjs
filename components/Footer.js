@@ -32,8 +32,17 @@ const Footer = () => {
             </div>
 
             <div className={styles.socialinfo}>
-                <div className={styles.bodyfont}> Yelp </div>
-                <div className={styles.bodyfont}> Facebook </div>
+                <a href="https://www.facebook.com/torofusiongrill">
+                <img className={styles.icon} src="/assets/facebook.svg" alt="facebook"/>
+                </a>
+                <a href="https://www.instagram.com/torofusiongrill/?hl=en">
+
+                <img  className={styles.icon} src="/assets/insta.svg" alt="instagram"/>
+                </a>
+                <a href="https://www.yelp.com/biz/toro-fusion-grill-and-bar-bakersfield">
+
+                <img  className={styles.icon} src="/assets/yelp.svg" alt="yelp"/>
+                </a>
             </div>
        </div>
      </>

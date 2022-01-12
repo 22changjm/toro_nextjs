@@ -50,4 +50,9 @@
         text-align: center;
         width: 80vw;
     }
+    .receiptContainer {
+        border: 1px solid black;
+        margin: 1vh;
+        width: 98vw;
+    }
 }
