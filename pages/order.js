@@ -22,6 +22,7 @@ export default function Order() {
         priceLookup = snapshot.val();
     })
 
+    const [numItems, setNumItems] = useState(0);
     const [items, setItems] = useState([]);
     const [currItem, setCurrItem] = useState({})
     const [lookup, setLookup] = useState({});
@@ -89,6 +90,18 @@ export default function Order() {
         setOpenStatus(!openStatus)
     }
 
+    useEffect(()=> {
+        const entries = items.slice(1);
+        const count = 0
+        for (const entry in entries) {
+            if (entries[entry] === null) {
+                continue;
+            }
+            count += entries[entry]['count']
+        }
+        setNumItems(count);
+    }, [items])
+
     useEffect(()=> {}, [openStatus])
     
     useEffect(()=>{
@@ -128,6 +141,8 @@ export default function Order() {
 
     }
 
+
+
     const changeQuant = (sign, name) => {
         const clone = items.slice();
         if (sign === "+") {
@@ -161,7 +176,7 @@ export default function Order() {
 
   return (
     <>
-      <OrderNavBar toggle={toggleMobile} />
+      <OrderNavBar numItems={numItems} toggle={toggleMobile} />
       {mobileStatus && <MobileCheckout checkout={redirectToCheckout} changeQuant={changeQuant} items={items} />}
       {openStatus && <Modal title={modalTitle} description={modalDescription} price={modalPrice} addToCart={AddToCheckout} handleClick={closeModal} />}
       <div className={styles.container}>

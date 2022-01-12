@@ -21,7 +21,10 @@ const OrderNavBar = (props) => {
               />
            </Navbar.Brand>
 
-           <img onClick={props.toggle} className={styles.cart} src="/assets/cart.svg" alt="cart"/>
+            <div className={props.iconContainer}>
+            <img onClick={props.toggle} className={styles.cart} src="/assets/cart.svg" alt="cart"/>
+            <div className={styles.numItems}>{props.numItems}</div>
+            </div>
            <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className={styles.routes}>
                 <Nav.Link href="/">Welcome</Nav.Link>

@@ -15,6 +15,19 @@
     display: none;
 }
 
+.numItems {
+    display: none;
+}
+
+#font {
+    font-size: 20px;
+    color: black;
+    margin: 1vw;
+}
+
+#font:hover {
+    color: #f18701;
+}
 
 @media only screen and (max-width: 768px) {
 .routes {
@@ -39,11 +52,26 @@
 }
 
 .endMargin {
-    margin-right: 0;
+    margin-right: 20px;
 }
 
 #logo {
     margin-left: 0;
+}
+
+.numItems {
+    position: relative;
+    display:block;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(208, 11, 11);
+    border-radius: 50%;
+    text-align: center;
+    color:white;
+    font-weight: bold;
+    bottom: 15px;
+    left: 30px;
+    
 }
 
 }
