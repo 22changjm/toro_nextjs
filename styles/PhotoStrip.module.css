@@ -12,6 +12,10 @@
     justify-content: center;
 }
 
+.stripContainer {
+    background-color: black;
+}
+
 @media only screen and (max-width: 768px) {
     .photoRow {
         display: flex;
