@@ -14,8 +14,8 @@ export default function Reviews() {
       </Head>
       <Navigbar/>
       <div className={styles.container}>
-            <img className={styles.homePhoto} src='/assets/sake.png' alt="review photo" />
-            <div className={styles.header}>Some of our Reviews</div>
+            <img className={styles.homePhoto} src='/assets/home-photo.png' alt="review photo" />
+            <div className={styles.header}>Reviews</div>
     </div>
     <div className={styles.reviewstrip}>
             <div className={styles.review}>
