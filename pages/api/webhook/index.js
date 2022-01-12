@@ -1,7 +1,7 @@
 import Stripe from 'stripe';
 import {buffer} from 'micro';
 import firebaseInit from '../../../firebase/initFirebase';
-import { getDatabase, ref, onValue, set} from "firebase/database";
+import { getDatabase, ref, onValue, set, get} from "firebase/database";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -32,15 +32,15 @@ export default async function handler(req, res) {
         if (event.type === 'checkout.session.completed') {
             const session = event.data.object;
             const incompleteRef = ref(db, 'incomplete/' + session.id);
-            onValue(incompleteRef, (snapshot)=> {
-                const data = snapshot.val();
-                set(ref(db, 'complete/' + session.id), data)
-                res.json({set: data })
+            get(incompleteRef).then((snapshot)=> {
+                if (snapshot.exists()) {
+                    set(ref(db, 'complete/' + session.id), data)
+                }
             })
         }
 
 
-        res.json({set: data});
+        res.json({received: true});
     } else {
         res.setHeader('Allow', 'POST');
         res.status(405).end('Method Not Allowed');
