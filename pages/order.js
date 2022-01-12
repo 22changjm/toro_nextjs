@@ -11,6 +11,8 @@ import firebaseInit from '../firebase/initFirebase';
 import { getDatabase, ref, onValue, set} from "firebase/database";
 import Head from 'next/head';
 import Footer from '../components/Footer';
+import KitchenOrderSection from '../components/KitchenOrderSection';
+import SushiBarOrderSection from '../components/SushiBarOrderSection';
 
 
 
@@ -25,6 +27,7 @@ export default function Order() {
         priceLookup = snapshot.val();
     })
 
+    const [menuState, setMenuState] = useState(0);
     const [numItems, setNumItems] = useState(0);
     const [items, setItems] = useState([]);
     const [currItem, setCurrItem] = useState({})
@@ -184,16 +187,26 @@ export default function Order() {
         <meta name="description" content="Toro Fusion Grill located at 1818 L Street Bakersfield, CA 93301" />
         <link rel="icon" href="/assets/toro_icon.png" /> 
       </Head>
+
+
       <OrderNavBar numItems={numItems} toggle={toggleMobile} />
       {mobileStatus && <MobileCheckout checkout={redirectToCheckout} changeQuant={changeQuant} items={items} />}
       {openStatus && <Modal title={modalTitle} description={modalDescription} price={modalPrice} addToCart={AddToCheckout} handleClick={closeModal} />}
       <div className={styles.container}>
-          <div className={styles.leftcontainer}>
-              {OrderSide(openModal)}
-          </div>
-          
-          <CheckoutBar checkout={redirectToCheckout} changeQuant={changeQuant} items={items}/>
-      </div>
+            <div className={styles.leftcontainer}>
+                    <div className={styles.buttondesc}>
+                        Click On the Following Options to Display the Corresponding Menu
+                    </div>
+                    <div className={styles.buttoncontainer}> 
+                        <button className="buttoninverse" onClick={() => {setMenuState(0)}}>Kitchen</button>
+                        <button className="buttoninverse" onClick={() => {setMenuState(1)}}>Sushi Bar</button>
+                    </div>
+                    <div className={styles.menu}>
+                        {menuState === 0 ? <KitchenOrderSection openModal={openModal} />: <SushiBarOrderSection openModal={openModal} />}     
+                    </div>
+            </div>
+            <CheckoutBar checkout={redirectToCheckout} changeQuant={changeQuant} items={items}/>
+        </div>
       <Footer />
 
 
