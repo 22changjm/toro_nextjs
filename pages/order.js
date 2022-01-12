@@ -44,7 +44,7 @@ export default function Order() {
             data: {id},
         } = await axios.post('/api/checkout_sessions', {
             items: Object.entries(items.slice(1)).filter(arr => arr[1]).map(([_, {name, count, desc}]) => ({
-                price: /*priceLookup[name]*/ "price_1KCWPpAMCx4NZbAhcHXINv6C",
+                price: priceLookup[name] /*"price_1KCWPpAMCx4NZbAhcHXINv6C" */,
                 quantity: count,
             
             })),
