@@ -10,8 +10,6 @@ const PhotoLogoStrip = () => {
             <img className={styles.homePhoto} src='/assets/inside.jpeg' alt="home photo" />
             <div className={styles.mobileLogo}>
                 <div className={styles.header}>Toro Fusion Grill</div>
-                <div className={styles.body}>1818 L Street</div>
-                <div className={styles.body}>Bakersfield, CA</div>
             </div>
             </div>
             <div className={`${styles.logoContainer} ${styles.noMobile}`}>
