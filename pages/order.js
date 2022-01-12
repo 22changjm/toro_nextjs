@@ -39,7 +39,6 @@ export default function Order() {
     }
 
     const redirectToCheckout = async (name) => {
-        
         const {
             data: {id},
         } = await axios.post('/api/checkout_sessions', {
@@ -53,6 +52,7 @@ export default function Order() {
         const dict = {};
 
         dict['name'] = name;
+        dict['secs'] = Date.now();
         dict['timestamp'] = new Date().toLocaleDateString('en-US');
         dict['timestamp'] += " ";
         dict['timestamp'] += new Date().toLocaleTimeString('us-PT')
@@ -68,8 +68,8 @@ export default function Order() {
         
         set(ref(db, 'incomplete/' + id), dict) 
         
-        const stripe = await getStripe();
-        await stripe.redirectToCheckout({sessionId: id}); 
+        /*const stripe = await getStripe();
+        await stripe.redirectToCheckout({sessionId: id}); */
         
 
     };
