@@ -21,7 +21,7 @@ const OrderNavBar = (props) => {
               />
            </Navbar.Brand>
 
-            <div className={props.iconContainer}>
+            <div className={styles.iconContainer}>
             <img onClick={props.toggle} className={styles.cart} src="/assets/cart.svg" alt="cart"/>
             <div className={styles.numItems}>{props.numItems}</div>
             </div>

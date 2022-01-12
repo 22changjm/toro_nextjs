@@ -45,6 +45,8 @@
     padding: 5px;
     margin-right: 20px;
     cursor: pointer;
+    position: relative;
+    top: 12px;
 }
 
 .cart:hover {
@@ -69,7 +71,7 @@
     text-align: center;
     color:white;
     font-weight: bold;
-    bottom: 15px;
+    bottom: 5px;
     left: 30px;
     
 }
