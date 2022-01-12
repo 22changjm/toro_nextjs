@@ -35,13 +35,12 @@ export default async function handler(req, res) {
             get(incompleteRef).then((snapshot)=> {
                 if (snapshot.exists()) {
                     set(ref(db, 'complete/' + session.id), snapshot.val())
-                    res.json({received: true, data:snapshot.val()});
+                    res.json({received: true});
                 }
             })
         }
 
 
-        res.json({received: true});
     } else {
         res.setHeader('Allow', 'POST');
         res.status(405).end('Method Not Allowed');
