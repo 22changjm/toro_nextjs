@@ -52,6 +52,7 @@
         flex-direction: column;
         color: white;
         bottom: 25vh;
+        text-shadow: 5px 5px 5px #000000;
     }
 
     .homePhoto {
