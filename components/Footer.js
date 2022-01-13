@@ -23,10 +23,10 @@ const Footer = () => {
                         <div className={`${styles.day} ${styles.bodyfont}`}>Sunday</div>
                     </div>
                     <div className={styles.timecontainer}>
+                        <div className={`${styles.time} ${styles.bodyfont}`}> 11am-9pm</div>
                         <div className={`${styles.time} ${styles.bodyfont}`}> 11am-10pm</div>
-                        <div className={`${styles.time} ${styles.bodyfont}`}> 11am-11pm</div>
-                        <div className={`${styles.time} ${styles.bodyfont}`}> 12pm-11pm</div>
-                        <div className={`${styles.time} ${styles.bodyfont}`}> 12pm-9:30pm</div>
+                        <div className={`${styles.time} ${styles.bodyfont}`}> 12pm-10pm</div>
+                        <div className={`${styles.time} ${styles.bodyfont}`}> 12pm-9pm</div>
                     </div>
                 </div>
             </div>
