@@ -35,10 +35,10 @@ export default async function handler(req, res) {
             get(incompleteRef).then((snapshot)=> {
                 if (snapshot.exists()) {
                     set(ref(db, 'complete/' + session.id), snapshot.val())
-                    fetch('https://www.torofusiongrill.com/api/call', {
+                    
+                    await fetch('https://www.torofusiongrill.com/api/call', {
                         method: 'GET',
-                    });
-                    res.json({received: true});
+                    }).then(res.json({received: true}))
                 }
             })
         }
