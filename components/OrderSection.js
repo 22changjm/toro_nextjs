@@ -4,7 +4,7 @@ import orderEntry from "./OrderEntry";
 import {useState, useEffect, forwardRef} from "react"
 import styles from '../styles/OrderEntry.module.css'
 
-
+// eslint-disable-next-line react/display-name
 const OrderSection = forwardRef((props, pref) => {
     const [entries, SetEntries] = useState([]);
 
