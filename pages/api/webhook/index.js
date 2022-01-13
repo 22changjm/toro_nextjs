@@ -3,9 +3,6 @@ import {buffer} from 'micro';
 import firebaseInit from '../../../firebase/initFirebase';
 import { getDatabase, ref, onValue, set, get} from "firebase/database";
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require('twilio')(accountSid, authToken);
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -36,16 +33,17 @@ export default async function handler(req, res) {
         if (event.type === 'checkout.session.completed') {
             const session = event.data.object;
             const incompleteRef = ref(db, 'incomplete/' + session.id);
-            get(incompleteRef).then((snapshot)=> {
+            get(incompleteRef).then(async (snapshot)=> {
                 if (snapshot.exists()) {
                     set(ref(db, 'complete/' + session.id), snapshot.val())
-                    client.messages
-                    .create({
+                    const accountSid = process.env.TWILIO_ACCOUNT_SID;
+                    const authToken = process.env.TWILIO_AUTH_TOKEN;
+                    const client = require('twilio')(accountSid, authToken);
+                    await client.messages.create({
                         body: 'NEW ORDER! www.torofusiongrill.com/log',
                         from: '+19378892658',
                         to: '+16615678089'
-                    }).then(message => console.log(message.sid));
-                    res.json({received: true})
+                    }).then(()=> {res.json({received: true})});
                 }
             })
         }
