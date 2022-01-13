@@ -33,18 +33,60 @@
     position: sticky;
     top: 114px;
     background-color: white;
-    z-index: 10000;
+    z-index: 2;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 
 .scrollItem {
     white-space: nowrap;
-    margin-left: 10vw;
-    margin-right: 10vw;
+    margin-left: 20px;
+    margin-right: 20px;
     margin-top: 2vh;
     margin-bottom: 2vh;
+    font-size: 15px;
     cursor: pointer;
 }
 
 .scrollItem:hover {
     color: #f18701;
 }
+
+.bigContainer {
+    position: sticky;
+    top: 114px;
+    background-color: white;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.button {
+    min-width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#marginleft {
+    margin-left: 10px;
+}
+
+#marginright {
+    margin-right: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+    .scrollItem {
+        white-space: nowrap;
+        margin-left: 12px;
+        margin-right: 12px;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+  }

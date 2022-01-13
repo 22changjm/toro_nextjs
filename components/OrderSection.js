@@ -17,6 +17,7 @@ const OrderSection = forwardRef((props, pref) => {
         const app = firebaseInit();
         const db = getDatabase(app);
         const appetizers = ref(db,`/Menu/${props.type}/${props.category}`);
+        console.log
 
         const promise = new Promise((resolve, reject) => {
             onValue(appetizers, (snapshot) => {
