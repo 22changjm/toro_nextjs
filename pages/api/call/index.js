@@ -11,7 +11,7 @@ export default async function handler(req, res) {
                     .create({
                         body: 'NEW ORDER! www.torofusiongrill.com/log',
                         from: '+19378892658',
-                        to: '+19498707896'
+                        to: '+16615678089'
                     }).then(message => 
                         res.status(200).json(message.sid));
 
