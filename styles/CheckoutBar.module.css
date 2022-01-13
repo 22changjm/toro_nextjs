@@ -5,8 +5,7 @@
     overflow-y: scroll;
     border-top: solid black 20px;
     border-radius: 18px;
-    min-height: 60%;
-    max-height: 60%;
+    flex-grow: 1;
 }
 
 .title {
@@ -23,8 +22,6 @@
     font-size: 30px;
     border-bottom: solid black 20px;
     border-radius: 18px;
-    min-height: 40%;
-    max-height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,11 +34,13 @@
     width: 80%;
     text-align: center;
     border: 1px black solid;
-    margin: 1vw;
+    margin-bottom: 1vw;
+    margin-top: .5vw;
 }
 
-.checkout {
+#checkout {
     text-align: center;
+    width:60%
 }
 
 .container {
@@ -49,6 +48,9 @@
     max-height: calc(100vh - 114px);
     position: sticky;
     top: 114px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .total {
