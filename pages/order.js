@@ -1,9 +1,8 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, createRef} from 'react';
 import OrderNavBar from '../components/OrderNavBar'
 import styles from '../styles/Order.module.css'
 import CheckoutBar from '../components/CheckoutBar';
 import Modal from "../components/Modal";
-import OrderSide from '../components/OrderSide';
 import getStripe from '../components/get-stripe';
 import axios from 'axios';
 import MobileCheckout from '../components/MobileCheckout';
@@ -11,8 +10,7 @@ import firebaseInit from '../firebase/initFirebase';
 import { getDatabase, ref, onValue, set} from "firebase/database";
 import Head from 'next/head';
 import Footer from '../components/Footer';
-import KitchenOrderSection from '../components/KitchenOrderSection';
-import SushiBarOrderSection from '../components/SushiBarOrderSection';
+import OrderSection from '../components/OrderSection';
 
 
 
@@ -180,6 +178,32 @@ export default function Order() {
         }
     }
 
+    const appetizerRef = createRef();
+    const saladRef = createRef();
+    const torospecialtiesRef = createRef();
+    const entreesRef = createRef();
+    const tempuraRef = createRef();
+    const riceRef = createRef();
+    const noodleRef = createRef();
+    const soupRef = createRef();
+    const dessertRef = createRef();
+    const sushiandsashimiRef = createRef();
+    const classicRef = createRef();
+    const bakedRef= createRef();
+    const tempurarollRef = createRef();
+    const freshRef = createRef();
+    const specialtiesRef = createRef();
+    const sushibarspecialRef = createRef();
+
+
+    const handleScroll = (ref) => {
+        if (ref && ref.current) {
+            ref.current.scrollIntoView({ behavior: "smooth",
+                                            block: "center", });
+        }
+
+      
+    }
   return (
     <>
     <Head>
@@ -201,8 +225,83 @@ export default function Order() {
                         <button className="buttoninverse" onClick={() => {setMenuState(0)}}>Kitchen</button>
                         <button className="buttoninverse" onClick={() => {setMenuState(1)}}>Sushi Bar</button>
                     </div>
+
+                    {menuState === 0 ?
+                        <div className={styles.scrollContainer}>
+                            <div onClick={()=> {handleScroll(appetizerRef)}} className={styles.scrollItem}>
+                                Appetizers
+                            </div>
+                            <div onClick={()=> {handleScroll(saladRef)}} className={styles.scrollItem}>
+                            Salads
+                            </div>
+                            <div onClick={()=> {handleScroll(torospecialtiesRef)}} className={styles.scrollItem}>
+                            Toro Specialties
+                            </div>
+                            <div onClick={()=> {handleScroll(entreesRef)}} className={styles.scrollItem}>
+                            Entrees
+                            </div>
+                            <div onClick={()=> {handleScroll(tempuraRef)}} className={styles.scrollItem}>
+                            Tempura
+                            </div>
+                            <div onClick={()=> {handleScroll(riceRef)}} className={styles.scrollItem}>
+                            Rice
+                            </div>
+                            <div onClick={()=> {handleScroll(noodleRef)}} className={styles.scrollItem}>
+                            Noodles
+                            </div>
+                            <div onClick={()=> {handleScroll(soupRef)}} className={styles.scrollItem}>
+                            Soup
+                            </div>
+                            <div onClick={()=> {handleScroll(dessertRef)}} className={styles.scrollItem}>
+                            Dessert
+                            </div>
+                        </div>
+                            :
+                        <div className={styles.scrollContainer}>
+                            <div onClick={()=> {handleScroll(sushiandsashimiRef)}} className={styles.scrollItem}>
+                                Sushi and Sashimi
+                            </div>
+                            <div onClick={()=> {handleScroll(classicRef)}} className={styles.scrollItem}>
+                            Classic Rolls
+                            </div>
+                            <div onClick={()=> {handleScroll(bakedRef)}} className={styles.scrollItem}>
+                            Baked Rolls
+                            </div>
+                            <div onClick={()=> {handleScroll(tempurarollRef)}} className={styles.scrollItem}>
+                            Tempura Rolls
+                            </div>
+                            <div onClick={()=> {handleScroll(freshRef)}} className={styles.scrollItem}>
+                            Fresh Rolls
+                            </div>
+                            <div onClick={()=> {handleScroll(specialtiesRef)}} className={styles.scrollItem}>
+                            Specialty Rolls
+                            </div>
+                            <div onClick={()=> {handleScroll(sushibarspecialRef)}} className={styles.scrollItem}>
+                            Sushi Bar Special
+                            </div> 
+                    </div>
+}
                     <div className={styles.menu}>
-                        {menuState === 0 ? <KitchenOrderSection openModal={openModal} />: <SushiBarOrderSection openModal={openModal} />}     
+                        {menuState === 0 ? <div>
+                                                <OrderSection ref={appetizerRef} type="Kitchen" category="Appetizers" handleClick={openModal} />
+                                                <OrderSection ref={saladRef} type="Kitchen" category="Salads" handleClick={openModal} />
+                                                <OrderSection ref={torospecialtiesRef} type="Kitchen" category="Toro Specialties" handleClick={openModal} />
+                                                <OrderSection ref={entreesRef} type="Kitchen" category="Entrees" handleClick={openModal} />
+                                                <OrderSection ref={tempuraRef} type="Kitchen" category="Tempura" handleClick={openModal} />
+                                                <OrderSection ref={riceRef} type="Kitchen" category="Rice" handleClick={openModal} />
+                                                <OrderSection ref={noodleRef} type="Kitchen" category="Noodles" handleClick={openModal} />
+                                                <OrderSection ref={soupRef} type="Kitchen" category="Soup" handleClick={openModal} />
+                                                <OrderSection ref={dessertRef} type="Kitchen" category="Dessert" handleClick={openModal} />
+                                            </div>: 
+                                                <div>
+                                                <OrderSection ref={sushiandsashimiRef} type="Sushi Bar" category="Sushi and Sashimi" handleClick={openModal} />
+                                                <OrderSection ref={classicRef}type="Sushi Bar" category="Classic Rolls" handleClick={openModal} />
+                                                <OrderSection ref={bakedRef}type="Sushi Bar" category="Baked Rolls" handleClick={openModal} />
+                                                <OrderSection ref={tempurarollRef} type="Sushi Bar" category="Tempura Rolls" handleClick={openModal} />
+                                                <OrderSection ref={freshRef} type="Sushi Bar" category="Fresh Rolls" handleClick={openModal} />
+                                                <OrderSection ref={specialtiesRef} type="Sushi Bar" category="Specialty Rolls" handleClick={openModal} />
+                                                <OrderSection ref={sushibarspecialRef} type="Sushi Bar" category="Sushi Bar Special" handleClick={openModal} />
+                                            </div>}     
                     </div>
             </div>
             <CheckoutBar checkout={redirectToCheckout} changeQuant={changeQuant} items={items}/>

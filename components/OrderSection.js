@@ -1,10 +1,11 @@
 import { getDatabase, ref, onValue} from "firebase/database";
 import firebaseInit from '../firebase/initFirebase'
 import orderEntry from "./OrderEntry";
-import {useState, useEffect} from "react"
+import {useState, useEffect, forwardRef} from "react"
 import styles from '../styles/OrderEntry.module.css'
 
-const OrderSection = (type, category, onClick) => {
+
+const OrderSection = forwardRef((props, pref) => {
     const [entries, SetEntries] = useState([]);
 
     const formatter = new Intl.NumberFormat('en-US', {
@@ -16,7 +17,7 @@ const OrderSection = (type, category, onClick) => {
     const fetchEntries = async (onClick) => {
         const app = firebaseInit();
         const db = getDatabase(app);
-        const appetizers = ref(db,`/Menu/${type}/${category}`);
+        const appetizers = ref(db,`/Menu/${props.type}/${props.category}`);
 
         const promise = new Promise((resolve, reject) => {
             onValue(appetizers, (snapshot) => {
@@ -52,18 +53,18 @@ const OrderSection = (type, category, onClick) => {
 
 
     useEffect(() => {
-        fetchEntries(onClick);
+        fetchEntries(props.handleClick);
     }, []);
 
     return (
         <>
             <div className={styles.container}>
-                <div className={styles.title}>{category}</div>
+                <div ref={pref} className={styles.title}>{props.category}</div>
                 {entries}
             </div>
         </>
     )
-}
+});
 
 
 export default OrderSection

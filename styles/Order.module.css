@@ -25,3 +25,26 @@
     text-align: center;
     margin-bottom: 2vh;
 }
+
+.scrollContainer {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    position: sticky;
+    top: 114px;
+    background-color: white;
+    z-index: 10000;
+}
+
+.scrollItem {
+    white-space: nowrap;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    cursor: pointer;
+}
+
+.scrollItem:hover {
+    color: #f18701;
+}
