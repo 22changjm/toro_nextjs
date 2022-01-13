@@ -36,7 +36,7 @@ export default async function handler(req, res) {
                 if (snapshot.exists()) {
                     set(ref(db, 'complete/' + session.id), snapshot.val())
                     
-                    await fetch('https://www.torofusiongrill.com/api/call', {
+                    fetch('https://www.torofusiongrill.com/api/call', {
                         method: 'GET',
                     }).then(res.json({received: true}))
                 }
