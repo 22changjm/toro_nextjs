@@ -346,7 +346,7 @@ export default function Order() {
     }
 
     useEffect(()=>{
-        window.addEventListener('wheel', ()=>{
+        window.addEventListener('scroll', ()=>{
             if (window.innerWidth >= 1324) {
   
             if (st > lastScrollTop) {
