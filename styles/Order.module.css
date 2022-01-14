@@ -31,7 +31,7 @@
 .scrollContainer {
     display: flex;
     flex-direction: row;
-    overflow-x: scroll;
+    overflow: auto;
     position: sticky;
     top: 114px;
     background-color: white;
