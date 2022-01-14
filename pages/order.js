@@ -240,8 +240,6 @@ export default function Order() {
         if (ref && ref.current) {
             ref.current.scrollIntoView({ behavior: "smooth",
                                             block: "center", });
-            const st = window.pageYOffset || document.documentElement.scrollTop;
-                console.log(st);
             if (ref.current.innerText === 'Appetizers') {
                 if (lastChanged) {
                     lastChanged.current.style.color = 'black';
@@ -348,7 +346,8 @@ export default function Order() {
     useEffect(()=>{
         window.addEventListener('scroll', ()=>{
             if (window.innerWidth >= 1324) {
-  
+                const st = window.pageYOffset || document.documentElement.scrollTop;
+
             if (st > lastScrollTop) {
                 if (st >= 0 && st < 438) {
                     if (lastChanged) {
@@ -357,6 +356,7 @@ export default function Order() {
                     appetizerScrollRef.current.style.color = "#f18701";
                     lastChanged = appetizerScrollRef;
                 } if (st >= 438 && st < 1078 && (lastScrollTop < 438 || lastScrollTop > 1078)) {
+                    console.log('working')
                         testRef.current.scrollBy({
                             left: 80, 
                             behavior: "smooth",
