@@ -1,4 +1,4 @@
-import {useState, useEffect, createRef} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import OrderNavBar from '../components/OrderNavBar'
 import styles from '../styles/Order.module.css'
 import CheckoutBar from '../components/CheckoutBar';
@@ -182,30 +182,48 @@ export default function Order() {
         }
     }
 
-    const appetizerRef = createRef();
-    const saladRef = createRef();
-    const torospecialtiesRef = createRef();
-    const entreesRef = createRef();
-    const tempuraRef = createRef();
-    const riceRef = createRef();
-    const noodleRef = createRef();
-    const soupRef = createRef();
-    const dessertRef = createRef();
-    const sushiandsashimiRef = createRef();
-    const classicRef = createRef();
-    const bakedRef= createRef();
-    const tempurarollRef = createRef();
-    const freshRef = createRef();
-    const specialtiesRef = createRef();
-    const sushibarspecialRef = createRef();
+    const appetizerRef = useRef();
+    const saladRef = useRef();
+    const torospecialtiesRef = useRef();
+    const entreesRef = useRef();
+    const tempuraRef = useRef();
+    const riceRef = useRef();
+    const noodleRef = useRef();
+    const soupRef = useRef();
+    const dessertRef = useRef();
+    const sushiandsashimiRef = useRef();
+    const classicRef = useRef();
+    const bakedRef= useRef();
+    const tempurarollRef = useRef();
+    const freshRef = useRef();
+    const specialtiesRef = useRef();
+    const sushibarspecialRef = useRef();
 
-    const testRef = createRef();
+    const testRef = useRef();
+
+    const appetizerScrollRef = useRef();
+    const saladScrollRef = useRef();
+    const torospecialtiesScrollRef = useRef();
+    const entreesScrollRef = useRef();
+    const tempuraScrollRef = useRef();
+    const riceScrollRef = useRef();
+    const noodlesScrollRef = useRef();
+    const soupScrollRef = useRef();
+    const dessertScrollRef = useRef();
+    const sushiandsashimiScrollRef = useRef();
+    const classicScrollRef = useRef();
+    const bakedScrollRef = useRef();
+    const tempurarollScrollRef = useRef();
+    const freshScrollRef = useRef();
+    const specialtyrollScrollRef = useRef();
+    const sushibarspecialScrollRef = useRef();
+
 
 
     const handleScroll = (ref) => {
         if (ref && ref.current) {
             ref.current.scrollIntoView({ behavior: "smooth",
-                                            block: "center", });
+                                            block: "start", });
         }
 
       
@@ -225,6 +243,330 @@ export default function Order() {
         }
     }
 
+    const lastScrollTop = 0;
+    const lastChanged = null;
+
+    useEffect(()=>{
+        window.addEventListener('scroll', ()=>{
+            const st = window.pageYOffset || document.documentElement.scrollTop;
+            console.log(st);
+            if (st > lastScrollTop) {
+                if (st > 0 && st < 1200) {
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    appetizerScrollRef.current.style.color = "#f18701";
+                    lastChanged = appetizerScrollRef;
+                } else if (st >= 1200 && st <= 2165 && (lastScrollTop < 1200 || lastScrollTop > 2165)) {
+                        testRef.current.scrollBy({
+                            left: 80, 
+                            behavior: "smooth",
+                        })
+                        if (lastChanged) {
+                            lastChanged.current.style.color = "black";
+                        }
+                        saladScrollRef.current.style.color = "#f18701";
+                        lastChanged = saladScrollRef;
+                } else if (st >= 2165 && st <= 2800 && (lastScrollTop < 2165 || lastScrollTop > 2800)) {
+                    testRef.current.scrollBy({
+                        left: 70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    torospecialtiesScrollRef.current.style.color = "#f18701";
+                    lastChanged = torospecialtiesScrollRef;
+                }else if (st >= 2800 && st <= 3645 && (lastScrollTop < 2800 || lastScrollTop > 3645)) {
+                    testRef.current.scrollBy({
+                        left: 110, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    entreesScrollRef.current.style.color = "#f18701";
+                    lastChanged = entreesScrollRef;
+                }else if (st >= 3645 && st <= 4045 && (lastScrollTop < 3645 || lastScrollTop > 4045)) {
+                    testRef.current.scrollBy({
+                        left: 70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    tempuraScrollRef.current.style.color = "#f18701";
+                    lastChanged = tempuraScrollRef;
+                } else if (st >= 4045 && st <= 4675 && (lastScrollTop < 4045 || lastScrollTop > 4675)) {
+                    testRef.current.scrollBy({
+                        left: 70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    riceScrollRef.current.style.color = "#f18701";
+                    lastChanged = riceScrollRef;
+                } else if (st >= 4675 && st <= 5175 && (lastScrollTop < 4675 || lastScrollTop > 5175)) {
+                    testRef.current.scrollBy({
+                        left: 50, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    noodlesScrollRef.current.style.color = "#f18701";
+                    lastChanged = noodlesScrollRef;
+                } else if (st >= 5175 && st <= 5575 && (lastScrollTop < 5175 || lastScrollTop > 5575)) {
+                    testRef.current.scrollBy({
+                        left: 70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    soupScrollRef.current.style.color = "#f18701";
+                    lastChanged = soupScrollRef;
+                } else if (st >= 5575 && st <= 6100 && (lastScrollTop < 5575 || lastScrollTop > 6100)) {
+                    testRef.current.scrollBy({
+                        left: 50, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    dessertScrollRef.current.style.color = "#f18701";
+                    lastChanged = dessertScrollRef;
+                } else if (st >= 6100 && st <= 8310 && (lastScrollTop < 6100 || lastScrollTop > 8310)) {
+                    testRef.current.scrollBy({
+                        left: 75, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    sushiandsashimiScrollRef.current.style.color = "#f18701";
+                    lastChanged = sushiandsashimiScrollRef;
+                } else if (st >= 8310 && st <= 10182 && (lastScrollTop < 8310 || lastScrollTop > 10182)) {
+                    testRef.current.scrollBy({
+                        left: 125, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    classicScrollRef.current.style.color = "#f18701";
+                    lastChanged = classicScrollRef;
+                } else if (st >= 10182 && st <= 11030 && (lastScrollTop < 10182 || lastScrollTop > 11030)) {
+                    testRef.current.scrollBy({
+                        left: 95, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    bakedScrollRef.current.style.color = "#f18701";
+                    lastChanged = bakedScrollRef;
+                }  else if (st >= 11030 && st <= 12342 && (lastScrollTop < 11030 || lastScrollTop > 12342)) {
+                    testRef.current.scrollBy({
+                        left: 90, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    tempurarollScrollRef.current.style.color = "#f18701";
+                    lastChanged = tempurarollScrollRef;
+                } else if (st >= 12342 && st <= 14101 && (lastScrollTop < 12342 || lastScrollTop > 14101)) {
+                    testRef.current.scrollBy({
+                        left: 100, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    freshScrollRef.current.style.color = "#f18701";
+                    lastChanged = freshScrollRef;
+                } else if (st >= 14101 && st <= 15857 && (lastScrollTop < 14101 || lastScrollTop > 15857)) {
+                    testRef.current.scrollBy({
+                        left: 120, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    specialtyrollScrollRef.current.style.color = "#f18701";
+                    lastChanged = specialtyrollScrollRef;
+                } else if (st >= 15857) {
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    sushibarspecialScrollRef.current.style.color = "#f18701";
+                    lastChanged = sushibarspecialScrollRef;
+                }
+                
+                console.log("down")
+            } else {
+                if (st > 0 && st < 1200 && lastScrollTop < 1200) {
+                    testRef.current.scrollBy({
+                        left: -80, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    appetizerScrollRef.current.style.color = "#f18701";
+                    lastChanged = appetizerScrollRef;
+                    
+                } else if (st >= 1200 && st <= 2165 && (lastScrollTop < 1200 || lastScrollTop > 2165)) {
+                    testRef.current.scrollBy({
+                        left: -70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    saladScrollRef.current.style.color = "#f18701";
+                    lastChanged = saladScrollRef;
+                } else if (st >= 2165 && st <= 2800 && (lastScrollTop < 2165 || lastScrollTop > 2800)) {
+                    testRef.current.scrollBy({
+                        left: -110, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    torospecialtiesScrollRef.current.style.color = "#f18701";
+                    lastChanged = torospecialtiesScrollRef;
+                }else if (st >= 2800 && st <= 3645 && (lastScrollTop < 2800 || lastScrollTop > 3645)) {
+                    testRef.current.scrollBy({
+                        left: -70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    entreesScrollRef.current.style.color = "#f18701";
+                    lastChanged = entreesScrollRef;
+                }else if (st >= 3645 && st <= 4045 && (lastScrollTop < 3645 || lastScrollTop > 4045)) {
+                    testRef.current.scrollBy({
+                        left: -70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    tempuraScrollRef.current.style.color = "#f18701";
+                    lastChanged = tempuraScrollRef;
+                } else if (st >= 4045 && st <= 4675 && (lastScrollTop < 4045 || lastScrollTop > 4675)) {
+                    testRef.current.scrollBy({
+                        left: -50, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    riceScrollRef.current.style.color = "#f18701";
+                    lastChanged = riceScrollRef;
+                } else if (st >= 4675 && st <= 5175 && (lastScrollTop < 4675 || lastScrollTop > 5175)) {
+                    testRef.current.scrollBy({
+                        left: -70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    noodlesScrollRef.current.style.color = "#f18701";
+                    lastChanged = noodlesScrollRef;
+                } else if (st >= 5175 && st <= 5575 && (lastScrollTop < 5175 || lastScrollTop > 5575)) {
+                    testRef.current.scrollBy({
+                        left: -50, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    soupScrollRef.current.style.color = "#f18701";
+                    lastChanged = soupScrollRef;
+                } else if (st >= 5575 && st <= 6100 && (lastScrollTop < 5575 || lastScrollTop > 6100)) {
+                    testRef.current.scrollBy({
+                        left: -75, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    dessertScrollRef.current.style.color = "#f18701";
+                    lastChanged = dessertScrollRef;
+                } else if (st >= 6100 && st <= 8310 && (lastScrollTop < 6100 || lastScrollTop > 8310)) {
+                    testRef.current.scrollBy({
+                        left: -125, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    sushiandsashimiScrollRef.current.style.color = "#f18701";
+                    lastChanged = sushiandsashimiScrollRef;
+                } else if (st >= 8310 && st <= 10182 && (lastScrollTop < 8310 || lastScrollTop > 10182)) {
+                    testRef.current.scrollBy({
+                        left: -95, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    classicScrollRef.current.style.color = "#f18701";
+                    lastChanged = classicScrollRef;
+                } else if (st >= 10182 && st <= 11030 && (lastScrollTop < 10182 || lastScrollTop > 11030)) {
+                    testRef.current.scrollBy({
+                        left: -90, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    bakedScrollRef.current.style.color = "#f18701";
+                    lastChanged = bakedScrollRef;
+                }  else if (st >= 11030 && st <= 12342 && (lastScrollTop < 11030 || lastScrollTop > 12342)) {
+                    testRef.current.scrollBy({
+                        left: -100, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    tempurarollScrollRef.current.style.color = "#f18701";
+                    lastChanged = tempurarollScrollRef;
+                } else if (st >= 12342 && st <= 14101 && (lastScrollTop < 12342 || lastScrollTop > 14101)) {
+                    testRef.current.scrollBy({
+                        left: -70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    freshScrollRef.current.style.color = "#f18701";
+                    lastChanged = freshScrollRef;
+                } else if (st >= 14101 && st <= 15857 && (lastScrollTop < 14101 || lastScrollTop > 15857)) {
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    specialtyrollScrollRef.current.style.color = "#f18701";
+                    lastChanged = specialtyrollScrollRef;
+                } else if (st >= 15857) {
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    sushibarspecialScrollRef.current.style.color = "#f18701";
+                    lastChanged = sushibarspecialScrollRef;
+                }
+
+            }
+            lastScrollTop = st <= 0? 0: st;
+        })
+    },[])
+
   return (
     <>
     <Head>
@@ -242,52 +584,52 @@ export default function Order() {
                         <div className={styles.bigContainer}> 
                             <button onClick={()=> {scrollBar('left')}}className={styles.button} >&lt;</button>
                             <div ref={testRef} className={styles.scrollContainer}>
-                                <div id={styles.marginleft} onClick={()=> {handleScroll(appetizerRef)}} className={styles.scrollItem}>
+                                <div ref={appetizerScrollRef}id={styles.marginleft} onClick={()=> {handleScroll(appetizerRef)}} className={styles.scrollItem}>
                                     Appetizers
                                 </div>
-                                <div onClick={()=> {handleScroll(saladRef)}} className={styles.scrollItem}>
+                                <div ref={saladScrollRef} onClick={()=> {handleScroll(saladRef)}} className={styles.scrollItem}>
                                 Salads
                                 </div>
-                                <div onClick={()=> {handleScroll(torospecialtiesRef)}} className={styles.scrollItem}>
+                                <div ref={torospecialtiesScrollRef} onClick={()=> {handleScroll(torospecialtiesRef)}} className={styles.scrollItem}>
                                 Toro Specialties
                                 </div>
-                                <div onClick={()=> {handleScroll(entreesRef)}} className={styles.scrollItem}>
+                                <div ref={entreesScrollRef} onClick={()=> {handleScroll(entreesRef)}} className={styles.scrollItem}>
                                 Entrees
                                 </div>
-                                <div onClick={()=> {handleScroll(tempuraRef)}} className={styles.scrollItem}>
+                                <div ref={tempuraScrollRef} onClick={()=> {handleScroll(tempuraRef)}} className={styles.scrollItem}>
                                 Tempura
                                 </div>
-                                <div onClick={()=> {handleScroll(riceRef)}} className={styles.scrollItem}>
+                                <div ref={riceScrollRef} onClick={()=> {handleScroll(riceRef)}} className={styles.scrollItem}>
                                 Rice
                                 </div>
-                                <div onClick={()=> {handleScroll(noodleRef)}} className={styles.scrollItem}>
+                                <div ref={noodlesScrollRef}  onClick={()=> {handleScroll(noodleRef)}} className={styles.scrollItem}>
                                 Noodles
                                 </div>
-                                <div onClick={()=> {handleScroll(soupRef)}} className={styles.scrollItem}>
+                                <div ref={soupScrollRef} onClick={()=> {handleScroll(soupRef)}} className={styles.scrollItem}>
                                 Soup
                                 </div>
-                                <div onClick={()=> {handleScroll(dessertRef)}} className={styles.scrollItem}>
+                                <div ref={dessertScrollRef} onClick={()=> {handleScroll(dessertRef)}} className={styles.scrollItem}>
                                 Dessert
                                 </div>
-                                <div onClick={()=> {handleScroll(sushiandsashimiRef)}} className={styles.scrollItem}>
+                                <div ref={sushiandsashimiScrollRef} onClick={()=> {handleScroll(sushiandsashimiRef)}} className={styles.scrollItem}>
                                 Sushi and Sashimi
                                 </div>
-                                <div onClick={()=> {handleScroll(classicRef)}} className={styles.scrollItem}>
+                                <div ref={classicScrollRef} onClick={()=> {handleScroll(classicRef)}} className={styles.scrollItem}>
                                 Classic Rolls
                                 </div>
-                                <div onClick={()=> {handleScroll(bakedRef)}} className={styles.scrollItem}>
+                                <div ref={bakedScrollRef} onClick={()=> {handleScroll(bakedRef)}} className={styles.scrollItem}>
                                 Baked Rolls
                                 </div>
-                                <div onClick={()=> {handleScroll(tempurarollRef)}} className={styles.scrollItem}>
+                                <div ref={tempurarollScrollRef} onClick={()=> {handleScroll(tempurarollRef)}} className={styles.scrollItem}>
                                 Tempura Rolls
                                 </div>
-                                <div onClick={()=> {handleScroll(freshRef)}} className={styles.scrollItem}>
+                                <div ref={freshScrollRef} onClick={()=> {handleScroll(freshRef)}} className={styles.scrollItem}>
                                 Fresh Rolls
                                 </div>
-                                <div onClick={()=> {handleScroll(specialtiesRef)}} className={styles.scrollItem}>
+                                <div ref={specialtyrollScrollRef} onClick={()=> {handleScroll(specialtiesRef)}} className={styles.scrollItem}>
                                 Specialty Rolls
                                 </div>
-                                <div onClick={()=> {handleScroll(sushibarspecialRef)}} className={styles.scrollItem}>
+                                <div ref={sushibarspecialScrollRef} onClick={()=> {handleScroll(sushibarspecialRef)}} className={styles.scrollItem}>
                                 Sushi Bar Special
                                 </div> 
                             </div>
