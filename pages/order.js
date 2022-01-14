@@ -41,7 +41,6 @@ export default function Order() {
 
     const toggleMobile = () => {
         if (openStatus) {
-            console.log('working')
             return;
         }
         setMobileStatus((prev) => !prev);
@@ -93,7 +92,6 @@ export default function Order() {
     
         setModalTitle(name);
         setModalDescription(desc);
-        console.log(price);
         setModalPrice(price);
         setOpenStatus(!openStatus)
     }
@@ -113,7 +111,6 @@ export default function Order() {
     useEffect(()=> {}, [openStatus])
     
     useEffect(()=>{
-        console.log(items[1])
         if (Object.keys(lookup).includes(currItem['name'])) {
             const tmp = items.slice();
             tmp[lookup[currItem['name']]]['count'] = tmp[lookup[currItem['name']]]['count'] + currItem['count'];
@@ -220,14 +217,7 @@ export default function Order() {
 
 
 
-    const handleScroll = (ref) => {
-        if (ref && ref.current) {
-            ref.current.scrollIntoView({ behavior: "smooth",
-                                            block: "center", });
-        }
-
-      
-    }
+    
 
     const scrollBar = (dir) => {
         if (dir === 'left') {
@@ -246,10 +236,343 @@ export default function Order() {
     const lastScrollTop = 0;
     const lastChanged = null;
 
+    const handleScroll = (ref) => {
+        if (ref && ref.current) {
+            ref.current.scrollIntoView({ behavior: "smooth",
+                                            block: "center", });
+            console.log(ref.current.innerText)
+            
+        }
+
+      
+    }
+
     useEffect(()=>{
-        window.addEventListener('scroll', ()=>{
-            const st = window.pageYOffset || document.documentElement.scrollTop;
-            console.log(st);
+        window.addEventListener('wheel', ()=>{
+            if (window.innerWidth >= 1324) {
+              
+
+                const st = window.pageYOffset || document.documentElement.scrollTop;
+                console.log(st);
+  
+            if (st > lastScrollTop) {
+                if (st > 0 && st < 438) {
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    appetizerScrollRef.current.style.color = "#f18701";
+                    lastChanged = appetizerScrollRef;
+                } if (st >= 438 && st <= 1078 && (lastScrollTop < 438 || lastScrollTop > 1078)) {
+                        testRef.current.scrollBy({
+                            left: 80, 
+                            behavior: "smooth",
+                        })
+                        if (lastChanged) {
+                            lastChanged.current.style.color = "black";
+                        }
+                        saladScrollRef.current.style.color = "#f18701";
+                        lastChanged = saladScrollRef;
+                } if (st >= 1078 && st <= 1574 && (lastScrollTop < 1078 || lastScrollTop > 1574)) {
+                    testRef.current.scrollBy({
+                        left: 70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    torospecialtiesScrollRef.current.style.color = "#f18701";
+                    lastChanged = torospecialtiesScrollRef;
+                } if (st >= 1574 && st <= 2215 && (lastScrollTop < 1574 || lastScrollTop > 2215)) {
+                    testRef.current.scrollBy({
+                        left: 110, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    entreesScrollRef.current.style.color = "#f18701";
+                    lastChanged = entreesScrollRef;
+                } if (st >= 2215 && st <= 2565 && (lastScrollTop < 2215 || lastScrollTop > 2565)) {
+                    testRef.current.scrollBy({
+                        left: 70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    tempuraScrollRef.current.style.color = "#f18701";
+                    lastChanged = tempuraScrollRef;
+                }  if (st >= 2565 && st <= 3061 && (lastScrollTop < 2565 || lastScrollTop > 3061)) {
+                    testRef.current.scrollBy({
+                        left: 70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    riceScrollRef.current.style.color = "#f18701";
+                    lastChanged = riceScrollRef;
+                }  if (st >= 3061 && st <= 3411 && (lastScrollTop < 3061 || lastScrollTop > 3411)) {
+                    testRef.current.scrollBy({
+                        left: 50, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    noodlesScrollRef.current.style.color = "#f18701";
+                    lastChanged = noodlesScrollRef;
+                }  if (st >= 3411 && st <= 3761 && (lastScrollTop < 3411 || lastScrollTop > 3761)) {
+                    testRef.current.scrollBy({
+                        left: 70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    soupScrollRef.current.style.color = "#f18701";
+                    lastChanged = soupScrollRef;
+                }  if (st >= 3761 && st <= 4112 && (lastScrollTop < 3761 || lastScrollTop > 4112)) {
+                    testRef.current.scrollBy({
+                        left: 50, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    dessertScrollRef.current.style.color = "#f18701";
+                    lastChanged = dessertScrollRef;
+                }  if (st >= 4112 && st <= 5624 && (lastScrollTop < 4112 || lastScrollTop > 5624)) {
+                    testRef.current.scrollBy({
+                        left: 75, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    sushiandsashimiScrollRef.current.style.color = "#f18701";
+                    lastChanged = sushiandsashimiScrollRef;
+                }  if (st >= 5624 && st <= 6845 && (lastScrollTop < 5624 || lastScrollTop > 6845)) {
+                    testRef.current.scrollBy({
+                        left: 125, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    classicScrollRef.current.style.color = "#f18701";
+                    lastChanged = classicScrollRef;
+                }  if (st >= 6845 && st <= 7486 && (lastScrollTop < 6845 || lastScrollTop > 7486)) {
+                    testRef.current.scrollBy({
+                        left: 95, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    bakedScrollRef.current.style.color = "#f18701";
+                    lastChanged = bakedScrollRef;
+                }   if (st >= 7486 && st <= 8417 && (lastScrollTop < 7486 || lastScrollTop > 8417)) {
+                    testRef.current.scrollBy({
+                        left: 90, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    tempurarollScrollRef.current.style.color = "#f18701";
+                    lastChanged = tempurarollScrollRef;
+                }  if (st >= 8417 && st <= 9638 && (lastScrollTop < 8417 || lastScrollTop > 9638)) {
+                    testRef.current.scrollBy({
+                        left: 100, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    freshScrollRef.current.style.color = "#f18701";
+                    lastChanged = freshScrollRef;
+                }  if (st >= 9638 && st <= 10860 && (lastScrollTop < 9638 || lastScrollTop > 10860)) {
+                    testRef.current.scrollBy({
+                        left: 120, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    specialtyrollScrollRef.current.style.color = "#f18701";
+                    lastChanged = specialtyrollScrollRef;
+                }  if (st >= 10860) {
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    sushibarspecialScrollRef.current.style.color = "#f18701";
+                    lastChanged = sushibarspecialScrollRef;
+                }
+                
+            } else {
+                if (st > 0 && st < 438) {
+                    testRef.current.scrollBy({
+                        left: -80, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    appetizerScrollRef.current.style.color = "#f18701";
+                    lastChanged = appetizerScrollRef;
+                    
+                } else if (st >= 438 && st <= 1078 && (lastScrollTop < 438 || lastScrollTop > 1078)) {
+                    testRef.current.scrollBy({
+                        left: -70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    saladScrollRef.current.style.color = "#f18701";
+                    lastChanged = saladScrollRef;
+                } else if (st >= 1078 && st <= 1574 && (lastScrollTop < 1078 || lastScrollTop > 1574)) {
+                    testRef.current.scrollBy({
+                        left: -110, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    torospecialtiesScrollRef.current.style.color = "#f18701";
+                    lastChanged = torospecialtiesScrollRef;
+                }else if (st >= 1574 && st <= 2215 && (lastScrollTop < 1574 || lastScrollTop > 2215)) {
+                    testRef.current.scrollBy({
+                        left: -70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    entreesScrollRef.current.style.color = "#f18701";
+                    lastChanged = entreesScrollRef;
+                }else if (st >= 2215 && st <= 2565 && (lastScrollTop < 2215 || lastScrollTop > 2565)) {
+                    testRef.current.scrollBy({
+                        left: -70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    tempuraScrollRef.current.style.color = "#f18701";
+                    lastChanged = tempuraScrollRef;
+                } else if (st >= 2565 && st <= 3061 && (lastScrollTop < 2565 || lastScrollTop > 3061)) {
+                    testRef.current.scrollBy({
+                        left: -50, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    riceScrollRef.current.style.color = "#f18701";
+                    lastChanged = riceScrollRef;
+                } else if (st >= 3061 && st <= 3411 && (lastScrollTop < 3061 || lastScrollTop > 3411)) {
+                    testRef.current.scrollBy({
+                        left: -70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    noodlesScrollRef.current.style.color = "#f18701";
+                    lastChanged = noodlesScrollRef;
+                } else if (st >= 3411 && st <= 3761 && (lastScrollTop < 3411 || lastScrollTop > 3761)) {
+                    testRef.current.scrollBy({
+                        left: -50, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    soupScrollRef.current.style.color = "#f18701";
+                    lastChanged = soupScrollRef;
+                } else if (st >= 3761 && st <= 4112 && (lastScrollTop < 3761 || lastScrollTop > 4112)) {
+                    testRef.current.scrollBy({
+                        left: -75, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    dessertScrollRef.current.style.color = "#f18701";
+                    lastChanged = dessertScrollRef;
+                } else if (st >= 4112 && st <= 5624 && (lastScrollTop < 4112 || lastScrollTop > 5624)) {
+                    testRef.current.scrollBy({
+                        left: -125, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    sushiandsashimiScrollRef.current.style.color = "#f18701";
+                    lastChanged = sushiandsashimiScrollRef;
+                } else if (st >= 5624 && st <= 6845 && (lastScrollTop < 5624 || lastScrollTop > 6845)) {
+                    testRef.current.scrollBy({
+                        left: -95, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    classicScrollRef.current.style.color = "#f18701";
+                    lastChanged = classicScrollRef;
+                } else if (st >= 6845 && st <= 7486 && (lastScrollTop < 6845 || lastScrollTop > 7486)) {
+                    testRef.current.scrollBy({
+                        left: -90, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    bakedScrollRef.current.style.color = "#f18701";
+                    lastChanged = bakedScrollRef;
+                }  else if (st >= 7486 && st <= 8417 && (lastScrollTop < 7486 || lastScrollTop > 8417)) {
+                    testRef.current.scrollBy({
+                        left: -100, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    tempurarollScrollRef.current.style.color = "#f18701";
+                    lastChanged = tempurarollScrollRef;
+                } else if (st >= 8417 && st <= 9638 && (lastScrollTop < 8417 || lastScrollTop > 9638)) {
+                    testRef.current.scrollBy({
+                        left: -70, 
+                        behavior: "smooth",
+                    })
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    freshScrollRef.current.style.color = "#f18701";
+                    lastChanged = freshScrollRef;
+                } else if (st >= 9638 && st <= 10860 && (lastScrollTop < 9638 || lastScrollTop > 10860)) {
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    specialtyrollScrollRef.current.style.color = "#f18701";
+                    lastChanged = specialtyrollScrollRef;
+                } else if (st >= 10860) {
+                    if (lastChanged) {
+                        lastChanged.current.style.color = "black";
+                    }
+                    sushibarspecialScrollRef.current.style.color = "#f18701";
+                    lastChanged = sushibarspecialScrollRef;
+                }
+
+            }
+            lastScrollTop = st <= 0? 0: st;
+
+
+
+            } else {
+                const st = window.pageYOffset || document.documentElement.scrollTop;
             if (st > lastScrollTop) {
                 if (st > 0 && st < 1200) {
                     if (lastChanged) {
@@ -405,7 +728,6 @@ export default function Order() {
                     lastChanged = sushibarspecialScrollRef;
                 }
                 
-                console.log("down")
             } else {
                 if (st > 0 && st < 1200 && lastScrollTop < 1200) {
                     testRef.current.scrollBy({
@@ -564,6 +886,7 @@ export default function Order() {
 
             }
             lastScrollTop = st <= 0? 0: st;
+            }
         })
     },[])
 
