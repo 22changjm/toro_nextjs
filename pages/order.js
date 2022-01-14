@@ -240,9 +240,9 @@ export default function Order() {
         if (ref && ref.current) {
             ref.current.scrollIntoView({ behavior: "smooth",
                                             block: "center", });
-            if (window.innerWidth >= 1324) {
+            if (window.innerWidth >= 768) {
                     return;}
-                    
+
             if (ref.current.innerText === 'Appetizers') {
                 if (lastChanged) {
                     lastChanged.current.style.color = 'black';
