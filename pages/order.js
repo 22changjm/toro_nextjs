@@ -223,7 +223,7 @@ export default function Order() {
     const handleScroll = (ref) => {
         if (ref && ref.current) {
             ref.current.scrollIntoView({ behavior: "smooth",
-                                            block: "start", });
+                                            block: "center", });
         }
 
       
