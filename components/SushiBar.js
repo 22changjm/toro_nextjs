@@ -3,9 +3,10 @@ import styles from '../styles/Kitchen.module.css'
 const SushiBar = () => {
     return (
         <>
+
              <div className={styles.container}>
+             <div className={styles.body}>* indicates items eligible for 50% all day Happy Hour</div>
                 <div className={styles.title}>Sushi Bar Special</div>
-                <div className={styles.body}>* indicates items eligible for 50% discount with a call-in order to restaurant and with cash payment</div>
                 <div className={styles.menu}>
                     <div className={styles.col}>
                             <div className={styles.entry}>
