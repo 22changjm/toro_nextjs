@@ -57,6 +57,8 @@ const CheckoutBar = (props) => {
                 <div className={styles.total}>{`Subtotal: ${total}`}</div>
                 <input className={styles.name} onChange={handleText} placeholder="Name" type="text" id="name" name="name"/>
                 <button onClick={() => {
+                    alert("Sorry, We are closed today")
+                    return;
                     console.log(total);
                     if (total === "$0.00") {
                         alert("Please add items to cart before checking out.")
