@@ -68,7 +68,7 @@ const CheckoutBar = (props) => {
                         alert("Please add items to cart before checking out.")
                         return;
                     } else if (!validatePhoneNumber(name)) {
-                        alert("Please add a valid phone number. \n Example: 1234567890 OR (123)456-7890 OR 123-456-7890")
+                        alert("Please add a valid phone number. \nExample: 1234567890 OR (123)456-7890 OR 123-456-7890")
                         return;
                     }
                     props.checkout(name)}} id={styles.checkout} className="buttoninverse">
