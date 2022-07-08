@@ -5,7 +5,6 @@ const SushiBar = () => {
         <>
 
              <div className={styles.container}>
-             <div className={styles.body}>* indicates items eligible for 50% all day Happy Hour</div>
                 <div className={styles.title}>Sushi Bar Special</div>
                 <div className={styles.menu}>
                     <div className={styles.col}>
@@ -43,15 +42,15 @@ const SushiBar = () => {
                 <div className={styles.menu}>
                     <div className={styles.col}>
                             <div className={styles.entry}>
-                                <div className={styles.entryname}>*Tuna — Maguro</div>
+                                <div className={styles.entryname}>Tuna — Maguro</div>
                                 <div className={styles.entrydesc}>6.50 Sushi|14.99 Sashimi</div>
                             </div>
                             <div className={styles.entry}>
-                                <div className={styles.entryname}>*Albacore — Shiro Maguro</div>
+                                <div className={styles.entryname}>Albacore — Shiro Maguro</div>
                                 <div className={styles.entrydesc}>6.00 Sushi|13.99 Sashimi</div>
                             </div>
                             <div className={styles.entry}>
-                                <div className={styles.entryname}>*Cajun Tuna — Seared Spicy Maguro</div>
+                                <div className={styles.entryname}>Cajun Tuna — Seared Spicy Maguro</div>
                                 <div className={styles.entrydesc}>6.50 Sushi|14.99 Sashimi</div>
                             </div>
                             <div className={styles.entry}>
@@ -63,7 +62,7 @@ const SushiBar = () => {
                                 <div className={styles.entrydesc}>M.P. Sushi|M.P. Sashimi</div>
                             </div>
                             <div className={styles.entry}>
-                                <div className={styles.entryname}>*Salmon — Sake</div>
+                                <div className={styles.entryname}>Salmon — Sake</div>
                                 <div className={styles.entrydesc}>6.00 Sushi|13.99 Sashimi</div>
                             </div>
                         </div>
@@ -71,11 +70,11 @@ const SushiBar = () => {
                     <div className={styles.col}>
                         <div className={styles.entry}>
                         <div className={styles.entry}>
-                                <div className={styles.entryname}>*Paprika Salmon — Seared Spicy Sake</div>
+                                <div className={styles.entryname}>Paprika Salmon — Seared Spicy Sake</div>
                                 <div className={styles.entrydesc}>6.50 Sushi|14.99 Sashimi</div>
                             </div>
                             <div className={styles.entry}>
-                                <div className={styles.entryname}>*Yellowtail — Hamachi</div>
+                                <div className={styles.entryname}>Yellowtail — Hamachi</div>
                                 <div className={styles.entrydesc}>7.00 Sushi|15.99 Sashimi</div>
                             </div>
                             <div className={styles.entry}>
@@ -83,7 +82,7 @@ const SushiBar = () => {
                                 <div className={styles.entrydesc}>4.50 Sushi|12.99 Sashimi</div>
                             </div>
                             <div className={styles.entry}>
-                                <div className={styles.entryname}>*Cooked Shrimp — Ebi</div>
+                                <div className={styles.entryname}>Cooked Shrimp — Ebi</div>
                                 <div className={styles.entrydesc}>6.50 Sushi|13.99 Sashimi</div>
                             </div>
                             <div className={styles.entry}>
@@ -110,7 +109,7 @@ const SushiBar = () => {
                             <div className={styles.entrydesc}>6.50 Sushi|14.99 Sashimi</div>
                         </div>
                         <div className={styles.entry}>
-                            <div className={styles.entryname}>*Red Snapper — Tai</div>
+                            <div className={styles.entryname}>Red Snapper — Tai</div>
                             <div className={styles.entrydesc}>5.50 Sushi|12.99 Sashimi</div>
                         </div>
                         <div className={styles.entry}>
@@ -182,10 +181,10 @@ const SushiBar = () => {
 
                     <div className={styles.col}>
                             <div className={styles.entry}>
-                                <div className={styles.entryname}>*Shrimp Tempura Roll — 11.99</div>
+                                <div className={styles.entryname}>Shrimp Tempura Roll — 11.99</div>
                             </div>
                             <div className={styles.entry}>
-                                <div className={styles.entryname}>*Salmon Tempura Roll — 11.99</div>
+                                <div className={styles.entryname}>Salmon Tempura Roll — 11.99</div>
                             </div>
                             <div className={styles.entry}>
                                 <div className={styles.entryname}>Spider Roll — 12.99</div>
@@ -237,7 +236,7 @@ const SushiBar = () => {
                 <div className={styles.entrydesc}>In: crabmeat, avocado, cream cheese | Out: baked salmon</div>
             </div>
             <div className={styles.entry}>
-                <div className={styles.entryname}>*White Monster — 15.99</div>
+                <div className={styles.entryname}>White Monster — 15.99</div>
                 <div className={styles.entrydesc}>In: shrimp tempura, crabmeat, avocado | Out: baked white fish</div>
             </div>
         </div>
@@ -250,11 +249,11 @@ const SushiBar = () => {
 
         <div className={styles.col}>
             <div className={styles.entry}>
-                <div className={styles.entryname}>*1K — 11.99</div>
+                <div className={styles.entryname}>1K — 11.99</div>
                 <div className={styles.entrydesc}>spicy tuna, crabmeat, avocado, cream cheese (whole deep fried)</div>
             </div>
             <div className={styles.entry}>
-                <div className={styles.entryname}>*Crispy Cali — 10.99</div>
+                <div className={styles.entryname}>Crispy Cali — 10.99</div>
                     <div className={styles.entrydesc}>crabmeat, avocado (whole deep fried)</div>
             </div>
             <div className={styles.entry}>
@@ -262,7 +261,7 @@ const SushiBar = () => {
                 <div className={styles.entrydesc}>In: spicy crabmeat, avocado, cream cheese | Out: salmon (whole deep fried)</div>
             </div>
             <div className={styles.entry}>
-                <div className={styles.entryname}>*Golden Tiger — 14.99</div>
+                <div className={styles.entryname}>Golden Tiger — 14.99</div>
                 <div className={styles.entrydesc}>In: shrimp tempura, avocado, cream cheese (deep fried) | Out: spicy crabmeat</div>
             </div>
         </div>
@@ -277,7 +276,7 @@ const SushiBar = () => {
                 <div className={styles.entrydesc}>In: tuna, salmon, yellowtail, spicy crabmeat, jalapeno (whole deep fried)</div>
             </div>
             <div className={styles.entry}>
-                <div className={styles.entryname}>*Panda (6 pcs) — 14.99</div>
+                <div className={styles.entryname}>Panda (6 pcs) — 14.99</div>
                 <div className={styles.entrydesc}>In: shrimp tempura, spicy tuna, avocado, cream cheese (deep fried) | Out: spicy scallop, crabstick</div>
             </div>
         </div>
@@ -288,7 +287,7 @@ const SushiBar = () => {
                 <div className={styles.entrydesc}>In: crabmeat, avocado, cucumber | Out: deep fried langostino</div>
             </div>
             <div className={styles.entry}>
-                <div className={styles.entryname}>*Vegas — 13.99</div>
+                <div className={styles.entryname}>Vegas — 13.99</div>
                 <div className={styles.entrydesc}>In: salmon, avocado, cream cheese (deep fried)</div>
             </div>
             <div className={styles.entry}>
@@ -336,7 +335,7 @@ const SushiBar = () => {
                  <div className={styles.entrydesc}>In: spicy crabmeat, avocado, cucumber | Out: torched yellowtail, salsa</div>
              </div>
              <div className={styles.entry}>
-                 <div className={styles.entryname}>*Hot Night — 14.99</div>
+                 <div className={styles.entryname}>Hot Night — 14.99</div>
                  <div className={styles.entrydesc}>In: crabmeat, avocado, cucumber | Out: spicy tuna, crunch flake</div>
              </div>
              <div className={styles.entry}>
@@ -344,7 +343,7 @@ const SushiBar = () => {
                  <div className={styles.entrydesc}>In: crabmeat, avocado, cucumber | Out: salmon, spicy tuna, coconut flake</div>
              </div>
              <div className={styles.entry}>
-                <div className={styles.entryname}>*Lemon Flush — 14.99</div>
+                <div className={styles.entryname}>Lemon Flush — 14.99</div>
                 <div className={styles.entrydesc}>In: BBQ Eel, crabmeat, cucumber | Out: BBQ Eel</div>
             </div>
             <div className={styles.entry}>
@@ -355,7 +354,7 @@ const SushiBar = () => {
  
          <div className={styles.col}>
              <div className={styles.entry}>
-                 <div className={styles.entryname}>*Rainbow — 15.99</div>
+                 <div className={styles.entryname}>Rainbow — 15.99</div>
                  <div className={styles.entrydesc}>In: crabmeat, avocado, cucumber | Out: 4 kinds of fish</div>
              </div>
              <div className={styles.entry}>
@@ -371,7 +370,7 @@ const SushiBar = () => {
                  <div className={styles.entrydesc}>In: spicy scallop, crabmeat, cucumber | Out: salmon, tuna, jalapeno, crunch flake</div>
              </div>
              <div className={styles.entry}>
-                <div className={styles.entryname}>*Three Amigos — 14.99</div>
+                <div className={styles.entryname}>Three Amigos — 14.99</div>
                 <div className={styles.entrydesc}>In: crabmeat, avocado, cucumber | Out: paprika, salmon, cajun tuna, albacore tuna</div>
             </div>
          </div>
@@ -388,11 +387,11 @@ const SushiBar = () => {
                 <div className={styles.entrydesc}>In: shrimp tempura, spicy tuna, cucumber | Out: seared albacore, crispy red onion</div>
             </div>
             <div className={styles.entry}>
-                <div className={styles.entryname}>*Avocado Crunch — 14.99</div>
+                <div className={styles.entryname}>Avocado Crunch — 14.99</div>
                 <div className={styles.entrydesc}>In: shrimp tempura, spicy crabmeat, cream cheese, cucumber | Out: sliced avocado, crunch flake</div>
             </div>
             <div className={styles.entry}>
-                <div className={styles.entryname}>*Crunch Sexy — 13.99</div>
+                <div className={styles.entryname}>Crunch Sexy — 13.99</div>
                 <div className={styles.entrydesc}>In: shrimp tempura, crabmeat, avocado, cucumber | Out: crunch flake</div>
             </div>
             <div className={styles.entry}>
