@@ -50,8 +50,9 @@ export default function Success() {
             <div className={styles.receipt}>
                 <div className={styles.receiptTitle}> Order Details:</div>
                 <div className={styles.name}> Name: { order ? order['name']: null  }</div>
+                <div className={styles.name}> Phone Number: { order ? order['phoneNumber']: null  }</div>
                 <div className={styles.itemContainer}>
-                {order ? Object.entries(order).filter(entry=>entry[0] !== 'name' && entry[0] !== 'timestamp' && entry[0] !== 'secs').map((value, index)=> {
+                {order ? Object.entries(order).filter(entry=>entry[0] !== 'name' && entry[0] !== 'phoneNumber' && entry[0] !== 'timestamp' && entry[0] !== 'secs').map((value, index)=> {
                                     
 
                                     return <ReceiptItem key={index} name={value[0]} count={value[1]['quantity']} price={value[1]['price']} desc={value[1]['note']} />
