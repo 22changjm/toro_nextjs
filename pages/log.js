@@ -50,6 +50,7 @@ export default function Log() {
                 <div key={index} className={styles.receiptContainer}>
                     <div className={styles.receiptTitle}> Order Details:</div>
                     <div className={styles.name}> Name: {value[1][1]['name']}</div>
+                    <div className={styles.name}> Name: {value[1][1]['phoneNumber']}</div>
                     <div className={styles.name}> Time: {value[1][1]['timestamp']}</div>
                     {Object.entries(value[1][1]).filter(value=>value[0] !== 'name' && value[0] !== 'timestamp' && value[0] !== 'secs').map((value, index)=> {
                         return <ReceiptItem key={index} name={value[0]} count={value[1]['quantity']} price={value[1]['price']} desc={value[1]['note']}/>
