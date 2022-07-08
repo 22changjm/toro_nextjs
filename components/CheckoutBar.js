@@ -80,7 +80,7 @@ const CheckoutBar = (props) => {
                         alert("Please add a valid phone number. \nExample: 1234567890 OR (123)456-7890 OR 123-456-7890")
                         return;
                     }
-                    props.checkout(name)}} id={styles.checkout} className="buttoninverse">
+                    props.checkout(name, phoneNumber)}} id={styles.checkout} className="buttoninverse">
                     Checkout
                 </button>
             </div>
