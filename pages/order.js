@@ -46,7 +46,7 @@ export default function Order() {
         setMobileStatus((prev) => !prev);
     }
 
-    const redirectToCheckout = async (name) => {
+    const redirectToCheckout = async (name, phoneNumber) => {
         const {
             data: {id},
         } = await axios.post('/api/checkout_sessions', {
@@ -64,7 +64,7 @@ export default function Order() {
         dict['timestamp'] = new Date().toLocaleDateString('en-US');
         dict['timestamp'] += " ";
         dict['timestamp'] += new Date().toLocaleTimeString('us-PT')
-
+        dict['phoneNumber'] = phoneNumber
 
         for (const entry in prods) {
             dict[prods[entry][1]['name']] = {
