@@ -5,11 +5,21 @@ import CheckOutItem from './CheckOutItem';
 
 const MobileCheckout = (props) => {
     
-
+    const validatePhoneNumber = (phoneNumber) => {
+        const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        return regex.test(phoneNumber)
+    }
+    
     const [name, setName] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("")
 
-    const handleText = (event) => {
+
+    const handleName = (event) => {
         setName(event.target.value)
+    }
+    
+    const handlePhoneNumber = (event) => {
+      setPhoneNumber(event.target.value)
     }
 
     const [total, setTotal] = useState("0.00");
@@ -56,8 +66,8 @@ const MobileCheckout = (props) => {
 
             <div className={styles.footcontainer}>
                 <div className={styles.total}>{`Subtotal: ${total}`}</div>
-                <input className={styles.name} onChange={handleText} placeholder="Name" type="text" id="name" name="name"/>
-
+                <input className={styles.name} onChange={handleName} placeholder="Name" type="text" id="name" name="name"/>
+                <input className={styles.name} onChange={handlePhoneNumber} placeholder="Phone Number" type="text" id="phoneNumber" name="phoneNumber"/>
                 <button onClick={() => {
                     
                     console.log(total);
@@ -65,7 +75,10 @@ const MobileCheckout = (props) => {
                         alert("Please add items to cart before checking out.")
                         return;
                     } else if (name === "") {
-                        alert("Please add your name.")
+                        alert("Please add your Name.")
+                        return;
+                    } else if (!validatePhoneNumber(phoneNumber)) {
+                        alert("Please add a valid phone number. \nExample: 1234567890 OR (123)456-7890 OR 123-456-7890")
                         return;
                     }
                     props.checkout(name)}} id={styles.checkout} className="buttoninverse">
