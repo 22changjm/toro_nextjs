@@ -4,7 +4,12 @@ import CheckOutItem from './CheckOutItem';
 
 
 const CheckoutBar = (props) => {
-
+   
+    const validatePhoneNumber = (phoneNumber) => {
+        const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        return regex.test(phoneNumber)
+    }
+    
     const [name, setName] = useState("");
 
     const handleText = (event) => {
@@ -55,15 +60,15 @@ const CheckoutBar = (props) => {
 
             <div className={styles.footcontainer}>
                 <div className={styles.total}>{`Subtotal: ${total}`}</div>
-                <input className={styles.name} onChange={handleText} placeholder="Name" type="text" id="name" name="name"/>
+                <input className={styles.name} onChange={handleText} placeholder="Phone Number" type="text" id="name" name="name"/>
                 <button onClick={() => {
                     
                     console.log(total);
                     if (total === "$0.00") {
                         alert("Please add items to cart before checking out.")
                         return;
-                    } else if (name === "") {
-                        alert("Please add your name.")
+                    } else if (!validatePhoneNumber(name)) {
+                        alert("Please add a valid phone number. \n Example: 1234567890 OR (123)456-7890 OR 123-456-7890")
                         return;
                     }
                     props.checkout(name)}} id={styles.checkout} className="buttoninverse">
