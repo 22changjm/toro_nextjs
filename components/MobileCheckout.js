@@ -23,6 +23,18 @@ const MobileCheckout = (props) => {
     }
 
     const [total, setTotal] = useState("0.00");
+    const [tip, setTip] = useState("");
+
+    const tipHandler = (event) => {
+        const { key } = event;
+        setTip((prevValue) =>
+        key !== "Backspace"
+          ? !Number.isNaN(parseInt(key)) || key === "," || key === "."
+            ? prevValue + key
+            : prevValue
+          : prevValue.substring(0, prevValue.length - 1)
+      );
+    }
 
     useEffect(()=> {
         setTotal(calculateTotal(props.items))
@@ -68,6 +80,7 @@ const MobileCheckout = (props) => {
                 <div className={styles.total}>{`Subtotal: ${total}`}</div>
                 {!props.tableNumber && <input className={styles.name} onChange={handleName} placeholder="Name" type="text" id="name" name="name"/>}
                 {!props.tableNumber && <input className={styles.name} onChange={handlePhoneNumber} placeholder="Phone Number" type="text" id="phoneNumber" name="phoneNumber"/>}
+                {props.tableNumber ? <input className={styles.name} onKeyDown={tipHandler} placeholder="Gratuity" id="gratuity" name="gratuity" value={tip !== "" ? formatter.format(tip) : ""} /> : null}
                 <button onClick={() => {
                     
                     console.log(total);
