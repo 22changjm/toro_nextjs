@@ -46,7 +46,7 @@ export default function Success() {
         <div className={styles.container}>
             <div className={styles.title}> Thank you for your Order! </div>
             <div className={styles.body}> A receipt was sent to your email.</div>
-            <div className={styles.body}> Your order is being made and will be ready for pickup shortly!</div>
+            <div className={styles.body}> Your order is being made and will be ready shortly!</div>
             <div className={styles.receipt}>
                 <div className={styles.receiptTitle}> Order Details:</div>
                 {order ? order['name'] && <div className={styles.name}> Name: { order ? order['name']: null  }</div>: null}
