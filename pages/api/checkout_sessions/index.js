@@ -5,23 +5,22 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         try {
+            const lineItems = req?.body?.items ?? []
+            lineItems.forEach(element => {element['tax_rates'] = ['txr_1MJqraAMCx4NZbAhmtFpKGPs']})
+
             const session = await stripe.checkout.sessions.create({
                 mode: 'payment',
                 payment_method_types: ['card'],
-                line_items: req?.body?.items ?? [],
+                line_items: lineItems,
                 success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
                 cancel_url: `${req.headers.origin}/order`,
                 expires_at: Math.round(Date.now() / 1000) + 3600,
-                allow_promotion_codes: true,
-                automatic_tax: {
-                    enabled: true,
-                  }
             });
 
             res.status(200).json(session);
         } catch (err) {
             console.log(err.message)
-            res.status(500).json({statusCode: 500, message: err.message});
+            res.status(909).json({statusCode: 909, message: err.message});
         }
     } else {
         res.setHeader('Allow', 'POST');
