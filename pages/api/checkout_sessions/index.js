@@ -13,6 +13,9 @@ export default async function handler(req, res) {
                 cancel_url: `${req.headers.origin}/order`,
                 expires_at: Math.round(Date.now() / 1000) + 3600,
                 allow_promotion_codes: true,
+                automatic_tax: {
+                    enabled: true,
+                  }
             });
 
             res.status(200).json(session);
