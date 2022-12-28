@@ -6,7 +6,21 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
         try {
             const lineItems = req?.body?.items ?? []
+            const tip = req?.body?.tip ?? 0
             lineItems.forEach(element => {element['tax_rates'] = ['txr_1MJqraAMCx4NZbAhmtFpKGPs']})
+            
+            const product = await stripe.products.create({
+                name: 'Gratuity',
+                default_price_data: {
+                    currency: 'usd',
+                    unit_amount: tip
+                }
+              });
+
+            lineItems.push({
+                price: product['default_price'],
+                quantity: 1,
+            })
 
             const session = await stripe.checkout.sessions.create({
                 mode: 'payment',

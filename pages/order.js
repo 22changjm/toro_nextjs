@@ -17,6 +17,7 @@ import OrderSection from '../components/OrderSection';
 
 
 
+
 export default function Order() {
     let priceLookup = null;
     const app = firebaseInit();
@@ -48,15 +49,24 @@ export default function Order() {
         setMobileStatus((prev) => !prev);
     }
 
-    const redirectToCheckout = async (name, phoneNumber, tableNumber) => {
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2
+      })
+
+    const redirectToCheckout = async (name, phoneNumber, tableNumber, tip) => {
+        const checkout = Object.entries(items.slice(1)).filter(arr => arr[1]).map(([_, {name, count, desc}]) => ({
+            price: priceLookup[name] /*"price_1KCWPpAMCx4NZbAhcHXINv6C" */,
+            quantity: count,
+        
+        }));
+
         const {
             data: {id},
         } = await axios.post('/api/checkout_sessions', {
-            items: Object.entries(items.slice(1)).filter(arr => arr[1]).map(([_, {name, count, desc}]) => ({
-                price: priceLookup[name] /*"price_1KCWPpAMCx4NZbAhcHXINv6C" */,
-                quantity: count,
-            
-            })),
+            items: checkout,
+            tip: Number(formatter.format(tip).slice(1)) * 100
         });
         const prods = Object.entries(items.slice(1)).filter(arr=> arr[1])
         const dict = {};
