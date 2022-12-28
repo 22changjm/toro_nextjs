@@ -9,16 +9,14 @@ export default async function handler(req, res) {
             const tip = req?.body?.tip ?? 0
             lineItems.forEach(element => {element['tax_rates'] = ['txr_1MJqraAMCx4NZbAhmtFpKGPs']})
             
-            const product = await stripe.products.create({
-                name: 'Gratuity',
-                default_price_data: {
-                    currency: 'usd',
-                    unit_amount: tip
-                }
+            const price = await stripe.prices.create({
+                unit_amount: tip,
+                currency: 'usd',
+                product: 'prod_N4AhxO7ninmcQM'
               });
 
             lineItems.push({
-                price: product['default_price'],
+                price: price['id'],
                 quantity: 1,
             })
 

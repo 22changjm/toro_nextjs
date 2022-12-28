@@ -97,7 +97,7 @@ const CheckoutBar = (props) => {
                             return;
                         }
                     }
-                    props.checkout(name, phoneNumber, props.tableNumber, gratuity)}} id={styles.checkout} className="buttoninverse">
+                    props.checkout(name, phoneNumber, props.tableNumber, tip)}} id={styles.checkout} className="buttoninverse">
                     Checkout
                 </button>
             </div>
