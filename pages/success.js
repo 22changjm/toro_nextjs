@@ -49,9 +49,9 @@ export default function Success() {
             <div className={styles.body}> Your order is being made and will be ready for pickup shortly!</div>
             <div className={styles.receipt}>
                 <div className={styles.receiptTitle}> Order Details:</div>
-                {order['name'] && <div className={styles.name}> Name: { order ? order['name']: null  }</div>}
-                {order['phoneNumber'] && <div className={styles.name}> Phone Number: { order ? order['phoneNumber']: null  }</div>}
-                {order['tableNumber'] && <div className={styles.name}> Table Number: {order ? order['tableNumber']: null}</div>}
+                {order ? order['name'] && <div className={styles.name}> Name: { order ? order['name']: null  }</div>: null}
+                {order ? order['phoneNumber'] && <div className={styles.name}> Phone Number: { order ? order['phoneNumber']: null  }</div>: null}
+                {order? order['tableNumber'] && <div className={styles.name}> Table Number: {order ? order['tableNumber']: null}</div>: null}
 
                 <div className={styles.itemContainer}>
                 {order ? Object.entries(order).filter(entry=>entry[0] !== 'name' && entry[0] !== 'phoneNumber' && entry[0] !== 'timestamp' && entry[0] !== 'secs' && entry[0] !== 'tableNumber').map((value, index)=> {
