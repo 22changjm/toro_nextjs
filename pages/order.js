@@ -1,3 +1,4 @@
+import {useRouter} from 'next/router';
 import {useState, useEffect, useRef} from 'react';
 import OrderNavBar from '../components/OrderNavBar'
 import styles from '../styles/Order.module.css'
@@ -38,6 +39,7 @@ export default function Order() {
     const [modalPrice, setModalPrice] = useState(0);
 
     const [mobileStatus, setMobileStatus] = useState(false);
+    const [tableNumber, setTableNumber] = useState(0)
 
     const toggleMobile = () => {
         if (openStatus) {
@@ -46,7 +48,7 @@ export default function Order() {
         setMobileStatus((prev) => !prev);
     }
 
-    const redirectToCheckout = async (name, phoneNumber) => {
+    const redirectToCheckout = async (name, phoneNumber, tableNumber) => {
         const {
             data: {id},
         } = await axios.post('/api/checkout_sessions', {
@@ -65,6 +67,7 @@ export default function Order() {
         dict['timestamp'] += " ";
         dict['timestamp'] += new Date().toLocaleTimeString('us-PT')
         dict['phoneNumber'] = phoneNumber
+        dict['tableNumber'] = tableNumber
 
         for (const entry in prods) {
             dict[prods[entry][1]['name']] = {
@@ -107,6 +110,14 @@ export default function Order() {
         }
         setNumItems(count);
     }, [items])
+
+    const router = useRouter();
+    useEffect(() => {
+        const num = router.asPath.slice(13)
+        if (num) {
+            setTableNumber(num)
+        }
+    })
 
     useEffect(()=> {}, [openStatus])
     
@@ -680,7 +691,7 @@ export default function Order() {
 
 
       <OrderNavBar numItems={numItems} toggle={toggleMobile} />
-      {mobileStatus && <MobileCheckout checkout={redirectToCheckout} changeQuant={changeQuant} items={items} />}
+      {mobileStatus && <MobileCheckout checkout={redirectToCheckout} changeQuant={changeQuant} items={items} tableNumber={tableNumber}/>}
       {openStatus && <Modal title={modalTitle} description={modalDescription} price={modalPrice} addToCart={AddToCheckout} handleClick={closeModal} />}
       <div className={styles.container}>
             <div className={styles.leftcontainer}>
@@ -758,7 +769,7 @@ export default function Order() {
                             <OrderSection ref={sushibarspecialRef} type="Sushi Bar" category="Sushi Bar Special" handleClick={openModal} />
                     </div>
             </div>
-            <CheckoutBar checkout={redirectToCheckout} changeQuant={changeQuant} items={items}/>
+            <CheckoutBar checkout={redirectToCheckout} changeQuant={changeQuant} items={items} tableNumber={tableNumber}/>
         </div>
       <Footer />
 
