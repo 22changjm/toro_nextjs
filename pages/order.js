@@ -61,12 +61,12 @@ export default function Order() {
             quantity: count,
         
         }));
-
+        console.log(typeof(tip))
         const {
             data: {id},
         } = await axios.post('/api/checkout_sessions', {
             items: checkout,
-            tip: Number(formatter.format(tip).slice(1)) * 100
+            tip: tip.charAt(0) === "$" ? Number(tip.slice(1)) * 100 : Number(tip) * 100
         });
         const prods = Object.entries(items.slice(1)).filter(arr=> arr[1])
         const dict = {};
@@ -90,7 +90,7 @@ export default function Order() {
         set(ref(db, 'incomplete/' + id), dict) 
         
         const stripe = await getStripe();
-        await stripe.redirectToCheckout({sessionId: id}); 
+        await stripe.redirectToCheckout({sessionId: id});
         
 
     };
