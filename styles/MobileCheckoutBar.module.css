@@ -51,8 +51,10 @@
 }
 
 .name {
-    width: 80%;
-    text-align: center;
-    border: 1px black solid;
-    margin-bottom: 3vw;
+    margin-bottom: 1vw;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 16px;
 }
