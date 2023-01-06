@@ -120,7 +120,7 @@ const MobileCheckout = (props) => {
                 <div className={styles.total}>{`Subtotal: ${total}`}</div>
                 {!props.tableNumber && <input className={styles.name} onChange={handleName} placeholder="Name" type="text" id="name" name="name"/>}
                 {!props.tableNumber && <input className={styles.name} onChange={handlePhoneNumber} placeholder="Phone Number" type="text" id="phoneNumber" name="phoneNumber"/>}
-                {props.tableNumber ? <div className={styles.tipcontainer}>
+                <div className={styles.tipcontainer}>
                                         <div onClick={() => handleFifteenClick(formatter.format(changeTotalToNumber(total) * .15))} className={fifteen ? styles.tipboxselected : styles.tipbox}>
                                             <div> 15% </div>
                                             {formatter.format(changeTotalToNumber(total) * .15)}
@@ -136,7 +136,6 @@ const MobileCheckout = (props) => {
                                         
                                         <input onClick={handleCustomClick} className={custom ? styles.tipboxcustomselected : styles.tipboxcustom} onKeyDown={tipHandler} placeholder="Custom Tip" id="gratuity" name="gratuity" value={ custom? formatter.format(tip): "" }/>
                                     </div>
-                     : null}
                 <button onClick={() => {
                     
                     console.log(total);
