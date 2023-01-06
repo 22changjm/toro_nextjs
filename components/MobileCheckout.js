@@ -101,8 +101,10 @@ const MobileCheckout = (props) => {
     return (
         <div className={styles.container}>
             <div className={styles.topcontainer}>
-            <div className={styles.title}> Checkout Cart </div>
-                    
+                <div className={styles.xcontainer}>
+                    <div className={styles.title}> Checkout Cart </div>
+                    <div onClick={props.toggle} className={styles.x}>X</div>
+                </div>       
 
             
             {   

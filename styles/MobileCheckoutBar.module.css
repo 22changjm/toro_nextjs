@@ -135,3 +135,23 @@
     margin-right: 2px;
 
 }
+.xcontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}   
+.x {
+    font-weight: bolder;
+    font-size: 2rem;
+    margin-right: 1.2rem;
+    border: 2px solid black;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    text-align: center;
+
+}   
+.x:hover {
+    cursor: pointer;
+}

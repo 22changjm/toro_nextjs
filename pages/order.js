@@ -701,7 +701,7 @@ export default function Order() {
 
 
       <OrderNavBar numItems={numItems} toggle={toggleMobile} />
-      {mobileStatus && <MobileCheckout checkout={redirectToCheckout} changeQuant={changeQuant} items={items} tableNumber={tableNumber}/>}
+      {mobileStatus && <MobileCheckout toggle={toggleMobile} checkout={redirectToCheckout} changeQuant={changeQuant} items={items} tableNumber={tableNumber}/>}
       {openStatus && <Modal title={modalTitle} description={modalDescription} price={modalPrice} addToCart={AddToCheckout} handleClick={closeModal} />}
       <div className={styles.container}>
             <div className={styles.leftcontainer}>
