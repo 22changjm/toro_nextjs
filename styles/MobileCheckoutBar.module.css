@@ -2,7 +2,6 @@
     box-shadow: -5px 0px 6px -3px #d1d1d1;
     position: relative;
     overflow-y: scroll;
-    border-top: solid black 20px;
     border-radius: 18px;
     height: calc(70vh - 114px);
 
@@ -18,7 +17,6 @@
     position: relative;
     box-shadow: -5px 0px 6px -3px #d1d1d1;
     font-size: 30px;
-    border-bottom: solid black 20px;
     border-radius: 18px;
     display: flex;
     flex-direction: column;
@@ -43,12 +41,14 @@
     z-index: 99999;
     display: flex;
     flex-direction: column;
+    box-shadow: -5px 0px 6px -3px #d1d1d1;
     
 }
 
 .total {
     text-align: center;
     padding-top: 30px;
+    font-size: 80%;
 }
 
 .name {
@@ -56,6 +56,6 @@
     background-color: white;
     color: black;
     border: 2px solid black;
-    padding: 10px 20px;
+    padding: 1.8% .9%;
     font-size: 16px;
 }
