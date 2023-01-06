@@ -48,7 +48,7 @@ export default function Log() {
           }).map((value,index)=> {
               return (
                 <div key={index} className={styles.receiptContainer}>
-                    <div className={styles.receiptTitle}> Order Details: {value[1][1]['tableNumber'] === 0 ? "TOGO" : null}</div>
+                    <div className={styles.receiptTitle}> Order Details: {value[1][1]['tableNumber'] === 0 ? "TOGO" : "DINE-IN"}</div>
                     {value[1][1]['name'] && <div className={styles.name}> Name: {value[1][1]['name']}</div>}
                     {value[1][1]['phoneNumber'] && <div className={styles.name}> Phone Number: {value[1][1]['phoneNumber']}</div>}
                     {value[1][1]['tableNumber'] !== 0 && <div className={styles.name}> Table Number: {value[1][1]['tableNumber']}</div>}
