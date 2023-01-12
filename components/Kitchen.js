@@ -256,7 +256,7 @@ const Kitchen = () => {
 
                     <div className={styles.col}>
                         <div className={styles.entry}>
-                            <div className={styles.entryname}>Toro Fusion Bowl — 16.99|19.99|19.99</div>
+                            <div className={styles.entryname}>Toro Fusion Bowl — 16.99|19.99|19.99|19.99</div>
                             <div className ={styles.entrydesc}>Vegetables | Chicken | Beef | Shrimp over rice &#38; seasoned vegetables in sizzling stone bowl</div>
                         </div>
                     </div>
