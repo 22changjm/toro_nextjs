@@ -15,14 +15,14 @@ const SushiBar = () => {
                                 <div className={styles.entryname}>Sashimi Special — 28.99</div>
                             </div>
                             <div className={styles.entry}>
-                                <div className={styles.entryname}>Sushi Combo — 32.99|36.99|40.99</div>
+                                <div className={styles.entryname}>Sushi Combo — 25.99|29.99|33.99</div>
                                 <div className={styles.entrydesc}>15 pc|18 pc|21 pc</div>
                             </div>
                         </div>
 
                     <div className={styles.col}>
                         <div className={styles.entry}>
-                            <div className={styles.entryname}>Sashimi Combo — 42.99|48.99|58.99</div>
+                            <div className={styles.entryname}>Sashimi Combo — 26.99|32.99|36.99</div>
                             <div className ={styles.entrydesc}>20 pc|24 pc|30 pc</div>
                         </div>
                     </div>
