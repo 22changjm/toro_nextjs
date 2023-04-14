@@ -15,9 +15,7 @@ export const config = {
 
 async function sendEmail() {
     let transporter = nodemailer.createTransport({
-        host: 'stmp.gmail.com',
-        port: 587,
-        secure: false,
+        service: 'gmail',
         auth: {
             user: '22mchang@gmail.com',
             pass: 'Lulu22!@#'
@@ -30,7 +28,13 @@ async function sendEmail() {
         subject: "NEW ORDER",
         text: "NEW ORDER! www.torofusiongrill.com/log"
     };
-    let info = await transporter.sendMail(mailOptions);
+    transporter.sendMail(mailOptions, function(error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log("email sent: " + info.response);
+        }
+    });
 }
 
 export default async function handler(req, res) {
