@@ -73,15 +73,17 @@ export default async function handler(req, res) {
             get(incompleteRef).then(async (snapshot)=> {
                 if (snapshot.exists()) {
                     set(ref(db, 'complete/' + session.id), snapshot.val())
-                    await sendEmail();
-                    const accountSid = process.env.TWILIO_ACCOUNT_SID;
-                    const authToken = process.env.TWILIO_AUTH_TOKEN;
-                    const client = require('twilio')(accountSid, authToken);
-                    await client.messages.create({
-                        body: 'NEW ORDER! www.torofusiongrill.com/log',
-                        from: '+19378892658',
-                        to: '+16613737110'
-                    }).then(()=> {res.json({received: true})});
+                    await sendEmail().then(console.log("ds")).catch(function(err) {
+                        console.log(err);
+                    });
+                    //const accountSid = process.env.TWILIO_ACCOUNT_SID;
+                    //const authToken = process.env.TWILIO_AUTH_TOKEN;
+                    //const client = require('twilio')(accountSid, authToken);
+                    //await client.messages.create({
+                    //    body: 'NEW ORDER! www.torofusiongrill.com/log',
+                    //    from: '+19378892658',
+                    //    to: '+16613737110'
+                    //}).then(()=> {res.json({received: true})});
                 }
             })
         }
