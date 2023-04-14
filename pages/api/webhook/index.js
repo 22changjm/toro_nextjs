@@ -2,6 +2,7 @@ import Stripe from 'stripe';
 import {buffer} from 'micro';
 import firebaseInit from '../../../firebase/initFirebase';
 import { getDatabase, ref, onValue, set, get} from "firebase/database";
+import nodemailer from 'nodemailer';
 
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -11,6 +12,26 @@ export const config = {
         bodyParser: false,
     },
 };
+
+async function sendEmail() {
+    let transporter = nodemailer.createTransport({
+        host: 'stmp.gmail.com',
+        port: 587,
+        secure: false,
+        auth: {
+            user: '22mchang@gmail.com',
+            pass: 'Lulu22!@#'
+        }
+    });
+
+    let mailOptions = {
+        from: '22mchang@gmail.com',
+        to: 'plwang@berkeley.edu',
+        subject: "NEW ORDER",
+        text: "NEW ORDER! www.torofusiongrill.com/log"
+    };
+    let info = await transporter.sendMail(mailOptions);
+}
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
@@ -36,6 +57,7 @@ export default async function handler(req, res) {
             get(incompleteRef).then(async (snapshot)=> {
                 if (snapshot.exists()) {
                     set(ref(db, 'complete/' + session.id), snapshot.val())
+                    await sendEmail();
                     const accountSid = process.env.TWILIO_ACCOUNT_SID;
                     const authToken = process.env.TWILIO_AUTH_TOKEN;
                     const client = require('twilio')(accountSid, authToken);
