@@ -73,7 +73,7 @@ export default async function handler(req, res) {
             get(incompleteRef).then(async (snapshot)=> {
                 if (snapshot.exists()) {
                     set(ref(db, 'complete/' + session.id), snapshot.val())
-                    await sendEmail().then(console.log("ds")).catch(function(err) {
+                    await sendEmail().then(()=> {res.json({received: true})}).catch(function(err) {
                         console.log(err);
                     });
                     //const accountSid = process.env.TWILIO_ACCOUNT_SID;
