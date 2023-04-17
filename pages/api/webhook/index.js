@@ -2,7 +2,6 @@ import Stripe from 'stripe';
 import {buffer} from 'micro';
 import firebaseInit from '../../../firebase/initFirebase';
 import { getDatabase, ref, onValue, set, get} from "firebase/database";
-import nodemailer from 'nodemailer';
 
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -12,42 +11,6 @@ export const config = {
         bodyParser: false,
     },
 };
-
-async function sendEmail() {
-    let transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: '22mchang@gmail.com',
-            pass: 'gylhidfmkvnslemh'
-        }
-    });
-    let mailOptions = {
-        from: '22mchang@gmail.com',
-        to: 'plwang@berkeley.edu',
-        subject: "NEW ORDER",
-        text: "NEW ORDER! www.torofusiongrill.com/log"
-    };
-    let mailOptions2 = {
-        from: '22mchang@gmail.com',
-        to: 'changjm@berkeley.edu',
-        subject: "NEW ORDER",
-        text: "NEW ORDER! www.torofusiongrill.com/log"
-    };
-    transporter.sendMail(mailOptions, function(error, info) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log("email sent: " + info.response);
-        }
-    });
-    transporter.sendMail(mailOptions2, function(error, info) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log("email sent: " + info.response);
-        }
-    });
-}
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
@@ -73,17 +36,14 @@ export default async function handler(req, res) {
             get(incompleteRef).then(async (snapshot)=> {
                 if (snapshot.exists()) {
                     set(ref(db, 'complete/' + session.id), snapshot.val())
-                    await sendEmail().then(()=> {res.json({received: true})}).catch(function(err) {
-                        console.log(err);
-                    });
-                    //const accountSid = process.env.TWILIO_ACCOUNT_SID;
-                    //const authToken = process.env.TWILIO_AUTH_TOKEN;
-                    //const client = require('twilio')(accountSid, authToken);
-                    //await client.messages.create({
-                    //    body: 'NEW ORDER! www.torofusiongrill.com/log',
-                    //    from: '+19378892658',
-                    //    to: '+16613737110'
-                    //}).then(()=> {res.json({received: true})});
+                    const accountSid = process.env.TWILIO_ACCOUNT_SID;
+                    const authToken = process.env.TWILIO_AUTH_TOKEN;
+                    const client = require('twilio')(accountSid, authToken);
+                    await client.messages.create({
+                        body: 'NEW ORDER! www.torofusiongrill.com/log',
+                        from: '+19378892658',
+                        to: '+16613737110'
+                    }).then(()=> {res.json({received: true})});
                 }
             })
         }
