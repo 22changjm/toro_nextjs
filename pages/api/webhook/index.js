@@ -42,7 +42,7 @@ export default async function handler(req, res) {
                     await client.messages.create({
                         body: 'NEW ORDER! www.torofusiongrill.com/log',
                         from: '+19378892658',
-                        to: '+16613737110'
+                        to: '+16613038173'
                     }).then(()=> {res.json({received: true})});
                 }
             })
