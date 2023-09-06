@@ -81,7 +81,8 @@ const CheckoutBar = (props) => {
                 {!props.tableNumber && <input className={styles.name} onChange={handlePhoneNumber} placeholder="Phone Number" type="text" id="phoneNumber" name="phoneNumber"/> }
                 {props.tableNumber ? <input className={styles.name} onKeyDown={tipHandler} placeholder="Gratuity" id="gratuity" name="gratuity" value={tip !== "" ? formatter.format(tip) : ""} /> : null}
                 <button onClick={() => {
-                    
+                    alert("We are currently not taking online orders. Sorry for the inconvenience!")
+                    return;
                     console.log(total);
                     if (total === "$0.00") {
                         alert("Please add items to cart before checking out.")
