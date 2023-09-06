@@ -139,7 +139,8 @@ const MobileCheckout = (props) => {
                                         <input onClick={handleCustomClick} className={custom ? styles.tipboxcustomselected : styles.tipboxcustom} onKeyDown={tipHandler} placeholder="Custom Tip" id="gratuity" name="gratuity" value={ custom? formatter.format(tip): "" }/>
                                     </div>
                 <button onClick={() => {
-                    
+                    alert("We are currently not taking online orders. Sorry for the inconvenience!")
+                    return;
                     console.log(total);
                     if (total === "$0.00") {
                         alert("Please add items to cart before checking out.")
